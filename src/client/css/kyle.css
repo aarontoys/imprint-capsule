@@ -5,3 +5,12 @@
 .margin-top {
   margin-top: 3vh; 
 }
+
+.colour {
+  background-color: blue;
+  color: white;
+}
+
+.profile {
+  border-radius: 50%;
+}
