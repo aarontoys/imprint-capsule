@@ -1,0 +1,27 @@
+{% extends '../layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>{{ title }}</h1>
+    <p>Welcome {{ title }}</p>
+
+    <p>Swig loop here to show usernnames, avatars, bios</p>
+
+     <div class="row">
+      <div class="span4"> User area 1
+      </div>
+      <div class="span4">User area 2
+      </div>
+      <div class="span4">User area 3
+      </div>
+     </div> 
+
+
+  </div>
+
+{% endblock %}
