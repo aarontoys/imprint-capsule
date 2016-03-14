@@ -7,6 +7,12 @@ a {
   color: #00B7FF;
 }
 
+.nav{
+	font-size: 30px;
+	text-decoration: none;
+	color: white; 
+}
+
 .map {
   margin: 0 auto;
   height: 80vh;
