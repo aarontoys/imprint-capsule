@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+.map {
+  margin: 0 auto;
+  height: 80vh;
+  width: 80vh;
+}
