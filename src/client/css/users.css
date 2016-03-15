@@ -7,14 +7,23 @@ a {
   color: #00B7FF;
 }
 
-.nav{
-	font-size: 30px;
-	text-decoration: none;
-	color: white; 
+.modal-title {
+  text-align: center;
 }
 
-.map {
-  margin: 0 auto;
-  height: 80vh;
-  width: 80vh;
+.bottom-button {
+  margin-top: 15px;
+}
+
+.username {
+  border: 1px solid gray;
+  margin: 5px;
+  padding: 5px;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
 }
