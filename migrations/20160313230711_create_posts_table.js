@@ -4,8 +4,8 @@ exports.up = function(knex, Promise) {
     table.increments('p_id');
     table.string('post');
     table.string('p_img');
-    table.integer('e_id');
-    table.integer('u_id');
+    table.integer('e_id').references('e_id').inTable('events');
+    table.integer('u_id').references('u_id').inTable('users');
   });
 };
 
