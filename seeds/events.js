@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
           public: null,
           code: null,
           e_img: 'http://saintpatricksbrewing.com/wp-content/uploads/2015/12/FoosBall-150x150.jpg',
-          et_id: 
+          et_id: 3
         }),
     knex('events').insert(
         {
@@ -29,7 +29,7 @@ exports.seed = function(knex, Promise) {
           public: null
           code: null
           e_img: 'http://www.cityofgolden.net/wp-content/uploads/North-Table-Mountain-Trail3.jpg'
-          et_id: 
+          et_id: 4
         }),
     knex('events').insert(
         {
@@ -42,7 +42,7 @@ exports.seed = function(knex, Promise) {
           public: null
           code: null
           e_img: 'http://s3-media2.fl.yelpcdn.com/bphoto/VWoDXG1DvZLDId5XqBXAGA/o.jpg'
-          et_id: 
+          et_id: 4
         }),
      knex('events').insert(
         {
@@ -55,7 +55,7 @@ exports.seed = function(knex, Promise) {
           public: null,
           code: null,
           e_img: 'http://www.dgcoursereview.com/course_pics/352/2132b721_m.jpg'
-          et_id: 
+          et_id: 5
         }),
       knex('events').insert(
         {
@@ -68,7 +68,7 @@ exports.seed = function(knex, Promise) {
           public: null,
           code: null,
           e_img: 'http://s3-media3.fl.yelpcdn.com/bphoto/e97NSCxvPJWV1QC2rm4uWw/o.jpg'
-          et_id: 
+          et_id: 3
         }),
     knex('events').insert(
         {
@@ -81,7 +81,7 @@ exports.seed = function(knex, Promise) {
           public: null,
           code: null,
           e_img: 'http://familyshootingcenter.com/machine_guns/t_center.jpg'
-          et_id: 
+          et_id: 5
         }),
     knex('events').insert(
         {
@@ -94,7 +94,7 @@ exports.seed = function(knex, Promise) {
           public: null,
           code: null,
           e_img: 'http://blogs.denverpost.com/artmosphere/files/2012/08/CVA2-495x369.jpg'
-          et_id: 
+          et_id: 1
         }),
     knex('events').insert(
         {
@@ -107,8 +107,21 @@ exports.seed = function(knex, Promise) {
           public: null,
           code: null,
           e_img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Washington_Park_Denver.JPG/250px-Washington_Park_Denver.JPG'
-          et_id: 
-        }),                     
+          et_id: 4
+        }),
+    knex('events').insert(
+        {
+          e_name: 'St Patrick\'s Day Denver',
+          desc: 'St Patrick\'s day in Denver is a fun time!',
+          start: 2016-03-17 00:00:00,
+          end: 2016-03-18 00:00:00,
+          e_latitude: 39.700198,
+          e_longitude: -104.9711,
+          public: true,
+          code: null,
+          e_img: 'http://svcdn.simpleviewinc.com/v3/cache/www_denver_org/10EAFEA142012702B25D650E1BACB63B.png'
+          et_id: 2
+        }),                        
 
     );
 };
