@@ -6,7 +6,36 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
+var cookieSession = require('cookie-session');
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook').Strategy;
+if ( !process.env.NODE_ENV ) { require('dotenv').config(); }
 
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_APP_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  //later this will be where you selectively send to the browser 
+  // an identifier for your user, like their primary key from the 
+  // database, or their ID from linkedin
+
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  // here is where you will go to the database and get the 
+  // user each time from it's id, after you set up your db
+  done(null, user)
+});
 
 // *** routes *** //
 // var routes = require('./routes/index.js');
