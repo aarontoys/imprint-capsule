@@ -7,6 +7,16 @@ exports.seed = function(knex, Promise) {
     // Inserts seed entries
     knex('users').insert(
         {
+          fname: 'Super',
+          lname: 'User',
+          email: 'super.user@gmail.com',
+          password: '123abc'
+          u_img: null,
+          sm_id: null
+        }),
+
+    knex('users').insert(
+        {
           fname: 'Kyle',
           lname: 'Maxwell',
           email: 'kyle.maxwell@gmail.com',
