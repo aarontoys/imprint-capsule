@@ -6,11 +6,12 @@ exports.up = function(knex, Promise) {
     table.text('desc');
     table.timestamp('start');
     table.timestamp('end');
-    table.string('location');
+    table.decimal('e_latitude');
+    table.decimal('e_longitude')
     table.boolean('public');
     table.string('code');
     table.string('e_img');
-    table.integer('et_id');
+    table.integer('et_id').references('et_id').inTable('event_types');
   });
 };
 
