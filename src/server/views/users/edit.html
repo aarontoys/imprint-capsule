@@ -1,4 +1,36 @@
-{% extends '../layout.html' %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+     <link rel="stylesheet" href="/css/index.css">
+     <link rel="stylesheet" href="/css/users.css">
+  </head>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+      <div class="row">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+         <a class="nav" href="/">Home</a>
+          </div>
+         <div class="col-sm-3 col-md-3 col-lg-3">
+         <a class="nav" href="/places">Places</a>
+         </div>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+         <a class="nav" href="/events">Events</a>
+         </div>
+          <div class="col-sm-3 col-md-3 col-lg-3">
+         <a class="nav" href="/profile">People</a>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+  </nav>
+  <body>
+
 
 {% block title %}{% endblock %}
 
@@ -30,19 +62,16 @@
 
       <label for="avatars">Choose Your Avatar</label>
         <label class="avatars">
-          <input type="radio" name="avatarOptions" id="avatar1" value="option1"> 1
+          <input type="radio" name="avatarOptions" id="avatar1" value="1"> <img src ="/userimg/1.png" class="img-choice">
         </label>
         <label class="radio-inline">
-          <input type="radio" name="avatarOptions" id="avatar2" value="option2"> 2
+          <input type="radio" name="avatarOptions" id="avatar2" value="2"> <img src ="/userimg/2.png" class="img-choice">
         </label>
         <label class="radio-inline">
-          <input type="radio" name="avatarOptions" id="avatar3" value="option3"> 3
+          <input type="radio" name="avatarOptions" id="avatar3" value="3"> <img src ="/userimg/3.png" class="img-choice">
         </label>
         <label class="radio-inline">
-          <input type="radio" name="avatarOptions" id="avatar3" value="option3"> 4
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="avatarOptions" id="avatar3" value="option3"> 5
+          <input type="radio" name="avatarOptions" id="avatar3" value="4"> <img src ="/userimg/4.png" class="img-choice">
         </label>
         <br />
       <button type="submit" class="btn btn-primary">Submit</button>
