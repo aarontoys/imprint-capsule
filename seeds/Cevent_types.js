@@ -7,27 +7,27 @@ exports.seed = function(knex, Promise) {
     // Inserts seed entries
     knex('event_types').insert(
         {
-          u_type: 'Art'
+          e_type: 'Art'
         }),
     knex('event_types').insert(
         {
-          u_type: 'Event'
+          e_type: 'Event'
         }),
     knex('event_types').insert(
         {
-          u_type: 'Food/Drink'
+          e_type: 'Food/Drink'
         }),
     knex('event_types').insert(
         {
-          u_type: 'Nature'
+          e_type: 'Nature'
         }),
     knex('event_types').insert(
         {
-          u_type: 'Sports'
+          e_type: 'Sports'
         }),
     knex('event_types').insert(
         {
-          u_type: 'Other'
+          e_type: 'Other'
         })
 
 

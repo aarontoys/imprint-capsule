@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
           fname: 'Super',
           lname: 'User',
           email: 'super.user@gmail.com',
-          password: '123abc'
+          password: '123abc',
           u_img: null,
           sm_id: null
         }),
@@ -20,7 +20,7 @@ exports.seed = function(knex, Promise) {
           fname: 'Kyle',
           lname: 'Maxwell',
           email: 'kyle.maxwell@gmail.com',
-          password: '123abc'
+          password: '123abc',
           u_img: null,
           sm_id: null
         }),
@@ -29,7 +29,7 @@ exports.seed = function(knex, Promise) {
           fname: 'Aaron',
           lname: 'Toys',
           email: 'aaron.toys@gmail.com',
-          password: '123abc'
+          password: '123abc',
           u_img: null,
           sm_id: null
         }),
@@ -38,7 +38,7 @@ exports.seed = function(knex, Promise) {
           fname: 'Robby',
           lname: 'Gaines',
           email: 'robert.gaines@gmail.com',
-          password: '123abc'
+          password: '123abc',
           u_img: null,
           sm_id: null
         }),
@@ -47,7 +47,7 @@ exports.seed = function(knex, Promise) {
           fname: 'Andy',
           lname: 'Gross',
           email: 'andy.Gross@gmail.com',
-          password: '123abc'
+          password: '123abc',
           u_img: null,
           sm_id: null
         }),
@@ -56,7 +56,7 @@ exports.seed = function(knex, Promise) {
           fname: 'Jim',
           lname: 'Bobby',
           email: 'jim.bobby@gmail.com',
-          password: '123abc'
+          password: '123abc',
           u_img: null,
           sm_id: null
         }),  
@@ -65,7 +65,7 @@ exports.seed = function(knex, Promise) {
           fname: 'Susan',
           lname: 'Sarandon',
           email: 'susan.sarandon@gmail.com',
-          password: '123abc'
+          password: '123abc',
           u_img: null,
           sm_id: null
         })                     
