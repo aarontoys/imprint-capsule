@@ -7,10 +7,6 @@ exports.seed = function(knex, Promise) {
     // Inserts seed entries
     knex('user_types').insert(
         {
-          u_type: 'Admin'
-        }),
-    knex('user_types').insert(
-        {
           u_type: 'Event Creator'
         }),
     knex('user_types').insert(
