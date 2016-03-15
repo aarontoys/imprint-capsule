@@ -6,8 +6,8 @@ exports.up = function(knex, Promise) {
     table.text('desc');
     table.timestamp('start');
     table.timestamp('end');
-    table.decimal('e_latitude');
-    table.decimal('e_longitude')
+    table.decimal('e_latitude', 10, 7);
+    table.decimal('e_longitude', 10, 7);
     table.boolean('public');
     table.string('code');
     table.string('e_img');
