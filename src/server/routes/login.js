@@ -3,10 +3,17 @@ var router = express.Router();
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/imprints';
 var knex = require('../../../db/knex');
-var queries = require('./queries')
+var queries = require('./queries');
+var passport = require('passport');
 
-router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Login' });
-});
+router.get('/facebook', passport.authenticate('facebook')); 
+
+router.get('/facebook/callabck', passport.authenticate('facebook', 
+  { failureRedirect: '/login' }),
+  function (req, res, next) {
+    // Successful authentication, redirect home.
+    console.log('user: ', req.user);
+    res.redirect('/');
+  });
 
 module.exports = router;
