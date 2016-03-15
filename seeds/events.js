@@ -2,17 +2,21 @@
 exports.seed = function(knex, Promise) {
   return Promise.join(
     // Deletes ALL existing entries
-    knex('users').del(), 
+    knex('events').del(), 
 
     // Inserts seed entries
-    knex('users').insert(
+    knex('events').insert(
         {
-          fname: 'Kyle',
-          lname: 'Maxwell',
-          email: 'kyle.maxwell@gmail.com',
-          password: '123abc'
-          u_img: null,
-          sm_id: null
+          e_name: 'Saint Patrick\'s Brewery',
+          desc: 'description here',
+          start: 'timestamp',
+          end: 'timestamp'
+          e_latitude: 39.612633,
+          e_longitude: -105.024532,
+          public: null
+          code: null
+          e_img: 
+          et_id
         }),
     knex('users').insert(
         {
@@ -40,24 +44,6 @@ exports.seed = function(knex, Promise) {
           password: '123abc'
           u_img: null,
           sm_id: null
-        }),
-     knex('users').insert(
-        {
-          fname: 'Jim',
-          lname: 'Bobby',
-          email: 'jim.bobby@gmail.com',
-          password: '123abc'
-          u_img: null,
-          sm_id: null
-        }),  
-     knex('users').insert(
-        {
-          fname: 'Susan',
-          lname: 'Sarandon',
-          email: 'susan.sarandon@gmail.com',
-          password: '123abc'
-          u_img: null,
-          sm_id: null
-        })                     
+        }),   
     );
 };
