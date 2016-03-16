@@ -9,6 +9,8 @@ var swig = require('swig');
 var cookieSession = require('cookie-session');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+var knex = require('../../db/knex');
+
 if ( !process.env.NODE_ENV ) { require('dotenv').config(); }
 
 passport.use(new FacebookStrategy({
@@ -23,9 +25,28 @@ passport.use(new FacebookStrategy({
     // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
     //   return cb(err, user);
     // });
-    return done(null, profile);
-  }
-));
+    console.log('logging in with passport-facebook');
+    knex('users')
+      .where({sm_id: profile.id})
+      .orWhere({email: profile.emails[0].value})
+      .first()
+      .then(function (user) {
+        if (!user) {
+          return knex('users').insert({
+            sm_id: profile.id,
+            email: profile.emails[0].value,
+            fname: profile.name.givenName,
+            lname: profile.name.familyName,
+            u_img: 'https://graph.facebook.com/'+profile.id+'/picture?type=large'
+          },'u_id')
+            .then(function (u_id) {
+              return done(null, u_id[0]);
+            });
+        } else {
+          return done(null, user.id);
+        }
+      });
+  }));
 
 passport.serializeUser(function(user, done) {
   //later this will be where you selectively send to the browser 
@@ -78,6 +99,12 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 
 // *** main routes *** //
+app.use(function (req, res, next) {
+  if (req.user) {
+    res.locals.user = req.user;
+  }
+  next();
+});
 app.use('/', register);
 app.use('/places', places);
 app.use('/events',events);
