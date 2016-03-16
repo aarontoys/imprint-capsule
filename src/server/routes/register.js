@@ -24,9 +24,7 @@ router.get('/', function(req, res, next) {
 	  	post3: info[2].post,
 	  	user: req.user
       });
-	})
-
-  
+	});
 });
 
 module.exports = router;
