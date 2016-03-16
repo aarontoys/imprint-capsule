@@ -29,6 +29,11 @@
     </div>
   </nav>
   <body>
+  {% if user %}
+  <p>Welcome {{ user.name.givenName }}! | <a href="/login/logout">Logout</a></p>
+  {% else %}
+  <p><a href="/login/facebook">Login</a></p>
+  {% endif %}
     {% block content %}
     {% endblock %}
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>

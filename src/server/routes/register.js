@@ -6,7 +6,11 @@ var knex = require('../../../db/knex');
 var queries = require('./queries')
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Login' });
+  // console.log('user: ',req.user);
+  res.render('index', { 
+    title: 'Login',
+    user: req.user 
+  });
 });
 
 module.exports = router;
