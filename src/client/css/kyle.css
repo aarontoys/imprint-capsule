@@ -27,8 +27,17 @@ body {
    margin: 0;
    padding: 0;
    height: 400px;
-   max-width: none;
+  width: 100%;
 }
 #map-canvas img {
    max-width: none !important;
+}
+
+.placeimg{
+  height: 250px;
+  width: 250px;
+}
+.singleplace{
+  height: 300px;
+  width: 300px;
 }

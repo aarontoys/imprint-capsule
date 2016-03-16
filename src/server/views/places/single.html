@@ -33,53 +33,39 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="center">Galvanize</h1>
+        <h1 class="center">{{ array[0].e_name }}</h1>
       </div>
     </div>
 
     <div class="row margin-top">
       <div class="col-sm-4">
-        <img src="http://placehold.it/300x300">
+        <img class="singleplace" src="{{ array[0].e_img}}">
       </div>
       <div class="col-sm-8">
-        <h3 class="center">About Galvanize</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h3 class="center">About {{ array[0].e_name }}</h3>
+        <h4 class="center">{{ array[0].e_type }}</h4>
+        <p>{{ array[0].desc }}</p>
       </div>
     </div>
-
-    <div class="row margin-top colour">
-      <div class="col-sm-9">
-        <h5>Username</h5>
-        <p>Comment:Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-      <div class="col-sm-3 center">
-        <img src="http://placehold.it/150x150" class="profile">
-      </div>
+    
+    <form class="margin-top">
+    <div class="form-group">
+      <label for="">Imprint: </label>
+      <textarea class="form-control" rows="5" cols="60" name="imprint" placeholder="Hello"></textarea>
+      <button type="button" class="btn btn-default">Imprint</button>
     </div>
+    </form>
 
-    <div class="row margin-top">
-      <div class="col-sm-3 center">
-        <img src="http://placehold.it/150x150" class="profile">
-      </div>
+    <div class="row">
+    {% for item in array %}
       <div class="col-sm-9">
-        <h5>Username</h5>
-        <p>Comment:Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h5>{{ item.fname }}</h5>
+        <p>{{ item.post }}</p>
       </div>
+      <div class="col-sm-3 center">
+        <img src="{{ item.u_img }}" class="profile">
+      </div>
+    {% endfor %}
     </div>
 
 
