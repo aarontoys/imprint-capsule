@@ -40,8 +40,6 @@
 
     <h1>{{ title }}</h1>
 
-
-
      <div class="row">
      {% for item in array %}
       <div class="col-sm-3 row-eq-height">
@@ -49,14 +47,14 @@
           <div class="media">
             <div class="media-left">
             <a href="/profile/{{item.u_id}}">
-            <img class="media-object img-circle usr-img-small" src="/userimg/{{item.u_img}}.png" alt="userimg">
+            <img class="media-object img-circle usr-img-small" src="{{item.u_img}}" alt="userimg">
             </div>
             <div class="media-body">
               <h5 class="media-heading">
               {{ item.fname }} {{item.lname}} </a></h5>
               <h6>Count | Title</h6>
-              <small> Last Imprint <time>5/12/2016</time></small>
-              <p>I'm trying not to, kid. You mean it controls your actions? Leave that to me. Send a distress signal, and inform the Senate that all on board were killed. I don't know what you're talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan</p>
+              <small> Last Imprint <time>{{item.created_at}}</time></small>
+              <p>{{item.bio}}</p>
             </div>
           </div>
         </div>

@@ -7,16 +7,18 @@ module.exports = {
     getAllUserPage: function(){
         return Users()
         .then(function(results) {
-            console.log(results);
             return results;
         }) 
     },
     getSingleUser: function(id){
-        return Users().where('u_id', id)
+        return knex.from('users').fullOuterJoin('posts', 'users.u_id', 'posts.u_id')
+        .fullOuterJoin('events', 'posts.e_id', 'events.e_id')
+        .where('users.u_id',id)
         .then(function(results) {
+        console.log("user join"+JSON.stringify(results));
             return results;
-        }) 
-    },
+        })
+   },
     addUser: function(fname,lname,email,password,img,bio){
         return Users().insert({
             fname: fname,

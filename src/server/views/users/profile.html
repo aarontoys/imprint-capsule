@@ -9,19 +9,47 @@
   <div class="media">
     <div class="media-left media-middle">
       <a href="#">
-        <img class="media-object img-circle " src="/userimg/{{results[0].u_img}}.png" alt="userimg">
+        <img class="media-object img-circle " src="{{results[0].u_img}}" alt="userimg">
       </a>
     </div>
     <div class="media-body">
       <h3 class="media-heading">{{results[0].fname}} {{results[0].lname}}</h3>
         <h4>Count | Title</h4>
-        <small> Last Imprinted <time>Sunday, October 05, 2014</time></small>
+        <small> Last Imprinted <time>{{results[0].createdat}}</time></small>
         <hr>
-        <p>I'm trying not to, kid. You mean it controls your actions? Leave that to me. Send a distress signal, and inform the Senate that all on board were killed. I don't know what you're talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan</p>
+        <p>{{results[0].bio}}</p>
     </div>
   </div>
 
   <h2>Imprints</h2>
+{% if item.e_id === null %}
+<h1>No Imprints Yet</h1>
+{% endif %}
+    
+    {% for item in results %}
+      <div class="col-sm-4 row-eq-height">
+        <div class ="username">
+          <div class="media">
+            <div class="media">
+            <a href="/places/{{item.e_id}}">
+            <img class="event-img-small" src="{{item.e_img}}" alt="userimg"></a>
+            </div>
+            <br />
+            <div class="media-body">
+              <h5 class="media-heading">
+              <a href="/places/{{item.e_id}}">
+              {{ item.e_name }}</a></h5>
+              <h6>Imprint</h6>
+              <p>{{ item.created_at }}
+              <br>
+              {{item.post}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+     {% endfor %}  
+
+
 
   
   
