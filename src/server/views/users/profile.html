@@ -22,7 +22,9 @@
   </div>
 
   <h2>Imprints</h2>
-{% if item.e_id === null %}
+item id = {{item.e_id}}
+
+{% if !item.e_id %}
 <h1>No Imprints Yet</h1>
 {% endif %}
     
