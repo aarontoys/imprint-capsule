@@ -12,7 +12,8 @@ exports.seed = function(knex, Promise) {
           email: 'super.user@gmail.com',
           password: '123abc',
           u_img: '/userimg/4.png',
-          sm_id: null
+          sm_id: null,
+          bio: 'I enjoy writing databases and seed files. Seed the world with the beautiful database seeds and watch the data trees grow.'
         }),
 
     knex('users').insert(
@@ -22,7 +23,8 @@ exports.seed = function(knex, Promise) {
           email: 'kyle.maxwell@gmail.com',
           password: '123abc',
           u_img: '/userimg/3.png',
-          sm_id: null
+          sm_id: null,
+          bio: 'I am an artist and am really into fashion and art.'
         }),
     knex('users').insert(
         {
@@ -31,7 +33,8 @@ exports.seed = function(knex, Promise) {
           email: 'aaron.toys@gmail.com',
           password: '123abc',
           u_img: '/userimg/3.png',
-          sm_id: null
+          sm_id: null,
+          bio: 'I have 3 kids and like to visit all the kid friendly places around Denver.'
         }),
     knex('users').insert(
         {
@@ -40,7 +43,8 @@ exports.seed = function(knex, Promise) {
           email: 'robert.gaines@gmail.com',
           password: '123abc',
           u_img: '/userimg/2.png',
-          sm_id: null
+          sm_id: null,
+          bio: 'I like sunsets and walks on the beach.'
         }),
      knex('users').insert(
         {
@@ -49,7 +53,8 @@ exports.seed = function(knex, Promise) {
           email: 'andy.Gross@gmail.com',
           password: '123abc',
           u_img: '/userimg/1.png',
-          sm_id: null
+          sm_id: null,
+          bio: 'Music and art are my passions. I enjoy hiking, biking, walking and sitting.'
         }),
      knex('users').insert(
         {
@@ -58,7 +63,8 @@ exports.seed = function(knex, Promise) {
           email: 'jim.bobby@gmail.com',
           password: '123abc',
           u_img: '/userimg/4.png',
-          sm_id: null
+          sm_id: null,
+          bio: 'I make my own whiskey.'
         }),  
      knex('users').insert(
         {
@@ -67,7 +73,8 @@ exports.seed = function(knex, Promise) {
           email: 'susan.sarandon@gmail.com',
           password: '123abc',
           u_img: '/userimg/2.png',
-          sm_id: null
+          sm_id: null,
+          bio: 'I like movies and wine. My favorite role was the one in which I played a mom who did not get along with the rest of her family but grew and learned about herself and had a happy ending.'
         })                     
     );
 };
