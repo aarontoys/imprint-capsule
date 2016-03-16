@@ -5,20 +5,23 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
-     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/kyle.css">
   </head>
     <nav class="navbar navbar-inverse">
       <div class="container">
       <div class="row">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div class="col-sm-4 col-md-4 col-lg-4">
+        <div class="col-sm-3 col-md-3 col-lg-3">
          <a class="nav" href="/">Home</a>
           </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-         <a class="nav" href="/places">Guestbooks</a>
+         <div class="col-sm-3 col-md-3 col-lg-3">
+         <a class="nav" href="/places">Places</a>
          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-         <a class="nav" href="/profile">Visitors</a>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+         <a class="nav" href="/events">Events</a>
+         </div>
+          <div class="col-sm-3 col-md-3 col-lg-3">
+         <a class="nav" href="/profile">People</a>
         </div>
         </div>
         </div>
@@ -26,22 +29,22 @@
     </div>
   </nav>
   <body>
-  {% if user %}
-  <p>Welcome {{ user.fname }}! | <a href="/login/logout">Logout</a></p>
-  {% else %}
-  <p><a href="/login/facebook">Login</a></p>
-  {% endif %}
-    {% block content %}
-    {% endblock %}
-    <hr>
-<!-- footer -->
-<div class="jumbotron">
-  <div class="page-footer">
-    <h1>Thanks for Visiting <small>Leave your Imprint anywhere</small></h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
   </div>
-</div>
+
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="/js/pin.js"></script>
   </body>
 </html>
