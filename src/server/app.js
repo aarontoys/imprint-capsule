@@ -14,12 +14,16 @@ if ( !process.env.NODE_ENV ) { require('dotenv').config(); }
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
+    callbackURL: "http://localhost:3000/login/facebook/callback",
+    profileFields: ['id', 'name', 'picture', 'displayName', 'email']
   },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
+  function(accessToken, refreshToken, profile, done) {
+    // console.log('user: ', req.user);
+    // console.log(profile);
+    // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+    //   return cb(err, user);
+    // });
+    return done(null, profile);
   }
 ));
 
@@ -64,6 +68,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cookieSession({
+  name: 'facebook login',
+  keys: [process.env.COOKIE_KEY1, process.env.COOKIE_KEY2]
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, '../client')));
 
 

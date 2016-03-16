@@ -22,8 +22,11 @@ router.get('/', function(req, res, next) {
  	    image3: info[2].e_img,
 	  	name3: info[2].e_name,
 	  	post3: info[2].post,
+	  	user: req.user
       });
 	})
+
+  
 });
 
 module.exports = router;
