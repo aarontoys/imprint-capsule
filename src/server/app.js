@@ -85,6 +85,7 @@ var places = require('./routes/places.js');
 var events = require('./routes/events.js');
 var profile = require('./routes/profile.js');
 var login = require('./routes/login.js');
+var pins = require('./routes/pins.js');
 
 // *** express instance *** //
 var app = express();
@@ -126,6 +127,7 @@ app.use('/places', places);
 app.use('/events',events);
 app.use('/profile',profile);
 app.use('/login', login);
+app.use('/pins', pins);
 
 
 // catch 404 and forward to error handler
