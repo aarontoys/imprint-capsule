@@ -23,20 +23,21 @@ module.exports = {
             console.log(results);
             return results;
         });
+    },
+    addEvent: function(e_name, desc, start, end, e_latitude, e_longitude, et_id){
+        return events().insert({
+            e_name: e_name,
+            desc: desc,
+            start: start,
+            end: end,
+            e_latitude: e_latitude ,
+            e_longitude: e_longitude,
+            et_id: et_id
+        })
+        .then(function(results) {
+            return results;
+        });
     }
-    // addUser: function(fname,lname,email,password,img,bio){
-    //     return Users().insert({
-    //         fname: fname,
-    //         lname: lname,
-    //         email: email,
-    //         password: password,
-    //         u_img: img,
-    //         bio: bio
-    //     })
-    //     .then(function(results) {
-    //         return results;
-    //     });
-    // },
     // editUser: function(id,fname,lname,email,password,img,bio) {
     //     return Users().where('u_id',id).update({
     //         fname: fname,
