@@ -17,13 +17,9 @@ module.exports = {
         .then(function(results) {
         console.log("user join"+JSON.stringify(results));
             return results;
-<<<<<<< HEAD
-        })
-   },
-=======
         });
     },
->>>>>>> 36d24c2e2e968c9346d671ef6e83c5197267bb84
+
     addUser: function(fname,lname,email,password,img,bio){
         return Users().insert({
             fname: fname,
