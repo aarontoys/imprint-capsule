@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
           lname: 'User',
           email: 'super.user@gmail.com',
           password: '123abc',
-          u_img: 1,
+          u_img: '/userimg/4.png',
           sm_id: null
         }),
 
@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
           lname: 'Maxwell',
           email: 'kyle.maxwell@gmail.com',
           password: '123abc',
-          u_img: 2,
+          u_img: '/userimg/3.png',
           sm_id: null
         }),
     knex('users').insert(
@@ -30,7 +30,7 @@ exports.seed = function(knex, Promise) {
           lname: 'Toys',
           email: 'aaron.toys@gmail.com',
           password: '123abc',
-          u_img: 4,
+          u_img: '/userimg/3.png',
           sm_id: null
         }),
     knex('users').insert(
@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
           lname: 'Gaines',
           email: 'robert.gaines@gmail.com',
           password: '123abc',
-          u_img: 3,
+          u_img: '/userimg/2.png',
           sm_id: null
         }),
      knex('users').insert(
@@ -48,7 +48,7 @@ exports.seed = function(knex, Promise) {
           lname: 'Gross',
           email: 'andy.Gross@gmail.com',
           password: '123abc',
-          u_img: 1,
+          u_img: '/userimg/1.png',
           sm_id: null
         }),
      knex('users').insert(
@@ -57,7 +57,7 @@ exports.seed = function(knex, Promise) {
           lname: 'Bobby',
           email: 'jim.bobby@gmail.com',
           password: '123abc',
-          u_img: 2,
+          u_img: '/userimg/4.png',
           sm_id: null
         }),  
      knex('users').insert(
@@ -66,7 +66,7 @@ exports.seed = function(knex, Promise) {
           lname: 'Sarandon',
           email: 'susan.sarandon@gmail.com',
           password: '123abc',
-          u_img: 3,
+          u_img: '/userimg/2.png',
           sm_id: null
         })                     
     );
