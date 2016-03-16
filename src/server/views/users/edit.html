@@ -42,41 +42,53 @@
      <form action ="" method="post">
       <fieldset class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email">
+        <input type="email" class="form-control" id="email" name="email" value="{{results[0].email}}">
       </fieldset>
 
       <fieldset class="form-group">
-        <label for="username">User Name</label>
-        <input type="text" class="form-control" id="username" placeholder="Enter username">
+        <label for="fname">First Name</label>
+        <input type="text" class="form-control" id="fname" name="fname" value="{{results[0].fname}}">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" class="form-control" id="lname" name ="lname" value="{{results[0].lname}}">
       </fieldset>
       
       <fieldset class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" value ="{{results[0].password}}">
       </fieldset>
 
       <fieldset class="form-group">
-        <label for="exampleTextarea">About you</label>
-        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+        <label for="bio">About you</label>
+        <textarea class="form-control" id="bio" name="bio" rows="3">{{results[0].bio}}</textarea>
       </fieldset>
 
       <label for="avatars">Choose Your Avatar</label>
         <label class="avatars">
-          <input type="radio" name="avatarOptions" id="avatar1" value="1"> <img src ="/userimg/1.png" class="img-choice">
+          <input type="radio" name="img" id="avatar1" value="/userimg/1.png" {% if results[0].u_img === '/userimg/1.png' %} checked="checked" {% endif %}>
+          <img src ="/userimg/1.png" class="img-choice">
         </label>
         <label class="radio-inline">
-          <input type="radio" name="avatarOptions" id="avatar2" value="2"> <img src ="/userimg/2.png" class="img-choice">
+          <input type="radio" name="img" id="avatar2" value="/userimg/2.png" {% if results[0].u_img === '/userimg/2.png' %} checked="checked" {% endif %} > 
+          <img src ="/userimg/2.png" class="img-choice" >
         </label>
         <label class="radio-inline">
-          <input type="radio" name="avatarOptions" id="avatar3" value="3"> <img src ="/userimg/3.png" class="img-choice">
+          <input type="radio" name="img" id="avatar3" value="/userimg/3.png" {% if results[0].u_img === '/userimg/3.png' %} checked="checked" {% endif %}> 
+          <img src ="/userimg/3.png" class="img-choice">
         </label>
         <label class="radio-inline">
-          <input type="radio" name="avatarOptions" id="avatar3" value="4"> <img src ="/userimg/4.png" class="img-choice">
+          <input type="radio" name="img" id="avatar4" value="/userimg/4.png" {% if results[0].u_img === '/userimg/4.png' %} checked="checked" {% endif %}> 
+          <img src ="/userimg/4.png" class="img-choice">
         </label>
         <br />
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Update User</button>
+    </form>  
+        <br />
+    <form action ="/profile/{{ results[0].u_id }}/delete/" method="post">
+      <button type="submit" class="btn btn-primary">Delete User</button>
     </form>
-
   </div>
 
 {% endblock %}
