@@ -27,6 +27,7 @@ passport.use(new FacebookStrategy({
     // });
     console.log('logging in with passport-facebook');
     knex('users')
+      // .innerJoin('events_users', 'events_users.u_id', 'users.u_id')
       .where({sm_id: profile.id})
       .orWhere({email: profile.emails[0].value})
       .first()
@@ -41,6 +42,14 @@ passport.use(new FacebookStrategy({
             u_img: 'https://graph.facebook.com/'+profile.id+'/picture?type=large'
           },'u_id')
             .then(function (u_id) {
+              console.log(u_id);
+              return knex('events_users').insert({
+                u_id: u_id[0],
+                ut_id: 2
+              }, 'u_id')
+            })
+            .then(function (u_id) {
+              console.log('after add to events_users: ',u_id);
               return done(null, u_id[0]);
             });
         } else {
