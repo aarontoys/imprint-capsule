@@ -15,9 +15,10 @@ module.exports = {
     },
     getSingleEvents: function(id){
         return events()
-        .innerJoin('event_types', 'events.et_id', 'event_types.et_id')
-        .innerJoin('posts', 'events.e_id', 'posts.e_id')
-        .where('e_id', id)
+        .fullOuterJoin('event_types', 'events.et_id', 'event_types.et_id')
+        .fullOuterJoin('posts', 'events.e_id', 'posts.e_id')
+        .fullOuterJoin('users', 'users.u_id', 'posts.u_id')
+        .where('events.e_id', id)
         .then(function(results) {
             console.log(results);
             return results;
