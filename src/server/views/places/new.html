@@ -30,32 +30,41 @@
   </nav>
   <body>
 
-<form>
+<form method="POST" action="/places/create">
   <fieldset class="form-group">
-    <label for="name">Name/Title</label>
-    <input type="text" class="form-control" id="name" placeholder="Name of Location">
+    <label for="name">Name</label>
+    <input name="e_name" type="text" class="form-control" id="name" placeholder="Name of Location">
   </fieldset>
   <fieldset class="form-group">
     <label for="latitude">Latitude of Location</label>
-    <input type="text" class="form-control" id="latitude" placeholder="Latitue">
+    <input name="e_latitude" type="text" class="form-control" id="latitude" placeholder="Latitue">
   </fieldset>
   <fieldset class="form-group">
     <label for="Longitude">Longitude of Location</label>
-    <input type="text" class="form-control" id="Longitude" placeholder="Longitude">
+    <input name="e_longitude" type="text" class="form-control" id="Longitude" placeholder="Longitude">
   </fieldset>
   <fieldset class="form-group">
     <label for="type">Type of Location:</label>
-    <select class="form-control" id="type">
-      <option>Art</option>
-      <option>Park</option>
-      <option>Trail</option>
-      <option>Brewery</option>
-      <option>Business</option>
+    <select name="et_id" class="form-control" id="type">
+      <option value="1">Art</option>
+      <option value="2">Event</option>
+      <option value="3">Food/Drink</option>
+      <option value="4">Nature</option>
+      <option value="5">Sports</option>
+      <option value="6">Other</option>
     </select>
   </fieldset>
   <fieldset class="form-group">
+    <label>Start: </label>
+    <input name="start" type="text">
+  </fieldset>
+  <fieldset class="form-group">
+    <label>End: </label>
+    <input name="end" type="text">
+  </fieldset>
+  <fieldset class="form-group">
     <label for="description">Description of Location:</label>
-    <textarea class="form-control" id="description" rows="5"></textarea>
+    <textarea name="desc" class="form-control" id="description" rows="5"></textarea>
   </fieldset>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
