@@ -22,8 +22,11 @@ function showPosition(position) {
     // if false, hide comment box
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
+    var url = window.location.href;
+    var id = url.substr(url.length - 1)
+    console.log(window.location.href, id);
 
-    $.get('/places/7/proximity?lat=' + lat + '&lon=' + lon, function (result) {
+    $.get('/places/'+id+'/proximity?lat=' + lat + '&lon=' + lon, function (result) {
     	( result ) ? $("#imprintBox").show() : $("#imprintBox").hide();
     })
 }

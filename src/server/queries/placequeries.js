@@ -24,7 +24,6 @@ module.exports = {
             return results;
         });
     },
-<<<<<<< HEAD
     proximity: function(lat, long, bounds){
         var bounds = bounds;
         var proximityObj = {};
@@ -70,8 +69,6 @@ module.exports = {
     },
 
 
-
-
     // addEvent: function(e_name, desc, start, end, e_latitude, e_longitude, et_id){
 
     addEvent: function(e_name,desc,start,end,e_latitude,e_longitude,public,code,e_img,et_id) {
@@ -102,7 +99,17 @@ module.exports = {
         .then(function(results) {
             return results;
         });
-    }    
+    },
+
+     locationDef: function(id){
+        console.log(id)
+        if (id === 7){
+            return true;
+        } else {
+            return false;
+        }
+
+    },    
     // editUser: function(id,fname,lname,email,password,img,bio) {
     //     return Users().where('u_id',id).update({
     //         fname: fname,
