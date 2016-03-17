@@ -27,6 +27,7 @@ passport.use(new FacebookStrategy({
     // });
     console.log('logging in with passport-facebook');
     knex('users')
+      // .innerJoin('events_users', 'events_users.u_id', 'users.u_id')
       .where({sm_id: profile.id})
       .orWhere({email: profile.emails[0].value})
       .first()
@@ -41,6 +42,14 @@ passport.use(new FacebookStrategy({
             u_img: 'https://graph.facebook.com/'+profile.id+'/picture?type=large'
           },'u_id')
             .then(function (u_id) {
+              console.log(u_id);
+              return knex('events_users').insert({
+                u_id: u_id[0],
+                ut_id: 2
+              }, 'u_id')
+            })
+            .then(function (u_id) {
+              console.log('after add to events_users: ',u_id);
               return done(null, u_id[0]);
             });
         } else {
@@ -85,6 +94,7 @@ var places = require('./routes/places.js');
 var events = require('./routes/events.js');
 var profile = require('./routes/profile.js');
 var login = require('./routes/login.js');
+var pins = require('./routes/pins.js');
 
 // *** express instance *** //
 var app = express();
@@ -126,6 +136,7 @@ app.use('/places', places);
 app.use('/events',events);
 app.use('/profile',profile);
 app.use('/login', login);
+app.use('/pins', pins);
 
 
 // catch 404 and forward to error handler

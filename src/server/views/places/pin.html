@@ -37,30 +37,9 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="map" id="map"></div>
-      </div>
-    </div>
-
-    <div class="row margin-top">
-      {% for item in array %}
-      <div class="col-md-4 panel panel-default {{ item.e_type }}">
-        <h4>{{ item.e_name }}</h4>
-        <div class="center">
-          <img class="placeimg" src="{{ item.e_img }}">    
-        </div>
-        <p>{{ item.desc }}</p>
-        <a href="/places/{{ item.e_id }}">Link to {{ item.e_name }}</a>
-      </div>
-      {% endfor %}
-    </div>
-
+    <div id="map"></div>
 
   </div>
-
-
-
 
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
