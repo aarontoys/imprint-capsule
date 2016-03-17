@@ -18,6 +18,8 @@ router.get('/', function(req, res, next) {
 // Create a new one
 router.get('/create', util.ensureAuthenticated, function(req, res, next) {
   res.render('places/new', { title: 'All Places' });
+});
+
 
 // Get info to create a new guestbook
 router.get('/create/:id', function(req, res, next) {
