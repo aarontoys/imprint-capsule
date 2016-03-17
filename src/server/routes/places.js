@@ -72,6 +72,7 @@ router.get('/:id/proximity', function (req, res, next) {
 
     var id = req.params.id;
     placequery.getSingleEvents(id).then(function(results) {
+    
     var eventLat = parseFloat(results[0].e_latitude);
     var eventLon = parseFloat(results[0].e_longitude);
     

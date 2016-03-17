@@ -13,9 +13,11 @@ router.get('/facebook', function (req, res, next) {
 
 router.get('/facebook/callback', passport.authenticate('facebook', {successReturnToOrRedirect: '/'}));
 
-router.post('/login', function (req, res, next) {
-  req.session.returnTo = req.session.originalUrl;
-}, passport.authenticate('local', {successReturnToOrRedirect: '/'}));
+router.post('/', function (req, res, next) {
+  req.session.returnTo = req.headers.referer;
+  next();
+}, passport.authenticate('local', {successReturnToOrRedirect: '/'}
+));
 
 router.get('/logout', function (req, res, next) {
   console.log('Req Headers: ',req.headers);
