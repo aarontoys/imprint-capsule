@@ -29,6 +29,11 @@
     </div>
   </nav>
   <body>
+   {% if user %}
+  <p>Welcome {{ user.fname }}! | <a href="/login/logout">Logout</a></p>
+  {% else %}
+  <p><a href="/login/facebook">Login</a></p>
+  {% endif %}
 
   <div class="container">
     <div class="row">
@@ -53,6 +58,22 @@
 
       </div>
     </div>
+
+<!-- begin conflict
+    {% if user %}
+    <form class="margin-top">
+    <div class="form-group">
+      <label for="">Imprint: </label>
+      <textarea class="form-control" rows="5" cols="60" name="imprint" placeholder="Hello"></textarea>
+      <button type="button" class="btn btn-default">Imprint</button>
+    </div>
+    </form>
+    {% else %}
+    <br>
+    <a class="btn btn-success" href="#">Add your imprint</a>
+    {% endif %}
+    end conflict -->
+
     
     <!-- <form id="imprintBox" class="margin-top">
       <div class="form-group">
@@ -74,6 +95,7 @@
       </div>
     </div>
     
+
 
 
     <div class="row">
