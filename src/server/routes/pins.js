@@ -10,11 +10,9 @@ router.get('/', function(req, res, next) {
 router.get('/api', function(req, res, next) {
   pinquery.getPins()
   .then(function(pinsList) {
-    // console.log(pinsList);
     res.json(pinsList);
   })
   .catch(function(err) {
-    console.log('Error:', err);
     return err;
   });
 });

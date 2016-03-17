@@ -35,7 +35,15 @@
       {% if user %}
       <p class="login">Welcome {{ user.fname }}! | <a href="/login/logout">Logout</a></p>
       {% else %}
-      <p class="login"><a href="/login/facebook">Login</a></p>
+      <div class="btn-group left">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Login <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><a href="/login/facebook">Login With Facebook</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </div>
       {% endif %}
       {% block content %}
       {% endblock %}

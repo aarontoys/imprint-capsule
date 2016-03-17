@@ -9,7 +9,6 @@ module.exports = {
         return events()
         .innerJoin('event_types', 'events.et_id', 'event_types.et_id')
         .then(function(results) {
-            // console.log(results);
             return results;
         });
     },
@@ -27,7 +26,6 @@ module.exports = {
     proximity: function(lat, long, bounds){
         var bounds = bounds;
         var proximityObj = {};
-        // console.log(lat, long)
         proximityObj.topRightLat = lat + bounds;
         proximityObj.topRightLong = long + bounds;
         proximityObj.bottomRightLat = lat - bounds;
@@ -48,28 +46,14 @@ module.exports = {
          && userProx.topLeftLong < locProx.topLeftLong && userProx.bottomRightLong >locProx.bottomRightLong)
             )
 
-            //attempt 1
-        //((userProx.topRightLat < locProx.topRightLat && userProx.topRightLong < locProx.topRightLong) || 
-        //    (userProx.topLeftLat < locProx.topLeftLat && userProx.topLeftLong > locProx.topLeftLong) ||
-        //    (userProx.bottomLeftLat > locProx.bottomLeftLat && userProx.bottomLeftLong > locProx.bottomLeftLong) ||
-        //    (userProx.bottomRightLat > locProx.bottomRightLat && userProx.bottomRightLong < locProx.bottomRightLong)){
-           //attempt 2 
-           // (locProx.bottomLeftLat < userProx.bottomLeftLat < locProx.topRightLat && locProx.bottomLeftLong < userProx.bottomLeftLong < locProx.topRightLong) ||
-           //  (locProx.bottomLeftLat < userProx.topRightLat < locProx.topRightLat && locProx.bottomLeftLong < userProx.topRightLong < locProx.topRightLong)
 
            { return true;
         } else  {
             return false;
         }
-        // compare the two proximity objects
-        // if the userProx is completely contained by locProx
-        //   return true
-        // else
-        //   return false
+
     },
 
-
-    // addEvent: function(e_name, desc, start, end, e_latitude, e_longitude, et_id){
 
     addEvent: function(e_name,desc,start,end,e_latitude,e_longitude,public,code,e_img,et_id) {
         return events().insert({
@@ -100,26 +84,5 @@ module.exports = {
             return results;
         });
     },
-
-        
-    // editUser: function(id,fname,lname,email,password,img,bio) {
-    //     return Users().where('u_id',id).update({
-    //         fname: fname,
-    //         lname: lname,
-    //         email: email,
-    //         password: password,
-    //         u_img: img,
-    //         bio: bio
-    //     })
-    //     .then(function(results) {
-    //         console.log("edit user results"+results);
-    //         return results;
-    //     }); 
-    // },
-    // deleteUser: function(id) {
-    //   return Users().where('u_id', id).del().then(function(results) {
-    //       return results;
-    //     });
-    //  }
 
 };

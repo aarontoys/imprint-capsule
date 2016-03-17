@@ -8,8 +8,7 @@ var queries = require('./queries')
 router.get('/', function(req, res, next) {
 	queries.getEventImagePost()
 	.then(function(data){
-	  var info = data.rows
-	  console.log("This is data on home"+JSON.stringify(data.rows));
+	  var info = data.rows;
 	  res.render('index', { 
 	  	id: info[0].e_id,
 	  	image: info[0].e_img,
@@ -23,7 +22,6 @@ router.get('/', function(req, res, next) {
  	    image3: info[2].e_img,
 	  	name3: info[2].e_name,
 	  	post3: info[2].post,
-	  	// user: req.user
       });
 	});
 });
