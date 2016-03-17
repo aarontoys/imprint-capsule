@@ -10,6 +10,8 @@ var cookieSession = require('cookie-session');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var knex = require('../../db/knex');
+var LocalStrategy = require('passport-local').Strategy;
+var util = require('./helpers/util');
 
 if ( !process.env.NODE_ENV ) { require('dotenv').config(); }
 
@@ -58,6 +60,33 @@ passport.use(new FacebookStrategy({
         }
       });
   }));
+
+passport.use(new LocalStrategy({
+  usernameField: 'email'
+}, function(email, password, done) {
+    // does the email exist?
+    knex('users').where('email', email)
+    .then(function(data) {
+      // email does not exist. return error.
+      if (!data.length) {
+        return done('Incorrect email.');
+      }
+      var user = data[0];
+      // email found but do the passwords match?
+      if (util.comparePassword(password, user.password)) {
+        // passwords match! return user
+        return done(null, user.u_id);
+      } else {
+        // passwords don't match! return error
+        return done('Incorrect password.');
+      }
+    })
+    .catch(function(err) {
+      // issue with SQL/nex query
+      return done('Incorrect email and/or password.');
+    });
+  }
+));
 
 passport.serializeUser(function(user, done) {
   //later this will be where you selectively send to the browser 
