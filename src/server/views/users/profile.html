@@ -5,49 +5,68 @@
 
 {% block content %}
 
-
-  <div class="media">
-    <div class="media-left media-middle">
-      <a href="#">
-        <img class="media-object img-circle " src="{{results[0].u_img}}" alt="userimg">
-      </a>
-    </div>
-    <div class="media-body">
-      <h3 class="media-heading">{{results[0].fname}} {{results[0].lname}}</h3>
-        <h4>Count | Title</h4>
-        <small> Last Imprinted <time>{{results[0].createdat}}</time></small>
-        <hr>
-        <p>{{results[0].bio}}</p>
-    </div>
-  </div>
-
-  <h2>Imprints</h2>
-{% if item.e_id === null %}
-<h1>No Imprints Yet</h1>
-{% endif %}
-    
-    {% for item in results %}
-      <div class="col-sm-4 row-eq-height">
-        <div class ="username">
-          <div class="media">
-            <div class="media">
-            <a href="/places/{{item.e_id}}">
-            <img class="event-img-small" src="{{item.e_img}}" alt="userimg"></a>
+<div class="row">
+    <div id="login-overlay" class="modal-dialog user">
+      <div class="modal-content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="user-spacing">
+                  <div class="media">
+                    <div class="media-left media-middle">
+                      <a href="#">
+                        <img class="media-object img-circle " src="{{results[0].u_img}}" alt="userimg">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h3 class="media-heading">{{results[0].fname}} {{results[0].lname}}</h3>
+                        {% if eid !== null %} 
+                        <h4>Imprints: {{ count }} | 
+                        {% if count === 1 %}Travellor {% endif %}
+                        {% if count === 2 %}Journier {% endif %}
+                        {% if count === 3 %}Gadabout Town {% endif %}
+                        {% if count > 3 %}Rapscallion{% endif %}
+                        </h4>
+                        <small> Last Imprinted <time>{{ results[0].created_at|date('Y-m-d H:i:s') }}</time></small>
+                        {% endif %}
+                        <hr>
+                        <p>{{results[0].bio}}</p>
+                        {% if user.u_id == id %}
+                        <button class="btn btn-success">Edit</button>
+                        {% endif %}
+                    </div>
+                   </div> 
+                {% if eid == null %}
+                <h3>No Imprints Yet</h3>
+                {% endif %}
+                   {% if eid !== null %}
+                   <h2>Imprints</h2> 
+                    {% for item in results %}
+                      <div class="col-sm-4 row-eq-height">
+                        <div class ="username">
+                            <div class="media">
+                            <a href="/places/{{ eid }}">
+                            <img class="event-img-small" src="{{item.e_img}}" alt="userimg"></a>
+                            </div>
+                            <br />
+                            <div class="media-body">
+                              <h5 class="media-heading">
+                              <a href="/places/{{ eid }}">
+                              {{ item.e_name }}</a></h5>
+                              <h6>Imprint</h6>
+                              <p>{{ results[0].created_at|date('Y-m-d H:i:s') }}
+                              <br>
+                              {{item.post}}</p>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}  
+                        {% endif %}
+                      </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <br />
-            <div class="media-body">
-              <h5 class="media-heading">
-              <a href="/places/{{item.e_id}}">
-              {{ item.e_name }}</a></h5>
-              <h6>Imprint</h6>
-              <p>{{ item.created_at }}
-              <br>
-              {{item.post}}</p>
-            </div>
-          </div>
         </div>
-      </div>
-     {% endfor %}  
 
 
 

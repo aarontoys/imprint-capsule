@@ -31,7 +31,6 @@ router.post('/new', function(req,res,next) {
 router.get('/:id/edit', function(req, res, next) {
   var id = req.params.id;
   queriesag.getSingleUser(id).then(function(results) {
-  console.log("get results"+JSON.stringify(results[0]))
   res.render('users/edit', { title: 'Edit User Profile', results:results });
   });
 });
@@ -64,7 +63,9 @@ router.post('/:id/delete', function(req,res,next) {
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
  queriesag.getSingleUser(id).then(function(results) {
-   res.render('users/profile', { title: 'Show User Profile'+id, results: results });
+   var count = results.length;
+   var eid = results[0].e_id;
+   res.render('users/profile', { title: 'Show User Profile'+id, results: results, count:count, eid:eid });
   })
 
 });
@@ -72,7 +73,7 @@ router.get('/:id', function(req, res, next) {
 //show all users on the page
 router.get('/', function(req, res, next) {
  queriesag.getAllUserPage().then(function(results) {
- res.render('users/all', { title: 'Show All Users', array: results });
+ res.render('users/all', { title: 'Meet Our Visitors', array: results });
   })
 });
 

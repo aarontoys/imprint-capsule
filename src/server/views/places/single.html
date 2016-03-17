@@ -61,6 +61,20 @@
         <button type="button" class="btn btn-default">Imprint</button>
       </div>
     </form>
+        <form class="margin-top" method="post">
+          <div class="form-group">
+            <label for="post">Imprint: </label>
+            <textarea class="form-control" rows="5" cols="60" name="post" id="post" placeholder="Hello"></textarea>
+            <input type ="text" value ="" name="created_at" id="created_at">
+            <input type ="text" value ="1" name="u_id" id="u_id">
+            <input type="text" value="{{ id }}" name="e_id" id="e_id">
+            <button type="submit" class="btn btn-default">Imprint</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+
 
     <div class="row">
     {% for item in array %}
@@ -74,16 +88,12 @@
     {% endfor %}
     </div>
 
-
-
   </div>
-
-
-
 
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/andy.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="/js/googlemaps.js"></script>
   </body>

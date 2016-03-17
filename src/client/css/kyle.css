@@ -23,13 +23,17 @@ body {
   margin: 0;
   padding: 0;
 }
-#map-canvas {
+#map{
+  height: 600px;
+  width: 600px;
+}
+#map {
    margin: 0;
    padding: 0;
    height: 400px;
   width: 100%;
 }
-#map-canvas img {
+#map img {
    max-width: none !important;
 }
 

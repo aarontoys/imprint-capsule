@@ -27,10 +27,12 @@ passport.use(new FacebookStrategy({
     // });
     console.log('logging in with passport-facebook');
     knex('users')
+      // .innerJoin('events_users', 'events_users.u_id', 'users.u_id')
       .where({sm_id: profile.id})
       .orWhere({email: profile.emails[0].value})
       .first()
       .then(function (user) {
+        console.log(user);
         if (!user) {
           return knex('users').insert({
             sm_id: profile.id,
@@ -40,10 +42,18 @@ passport.use(new FacebookStrategy({
             u_img: 'https://graph.facebook.com/'+profile.id+'/picture?type=large'
           },'u_id')
             .then(function (u_id) {
+              console.log(u_id);
+              return knex('events_users').insert({
+                u_id: u_id[0],
+                ut_id: 2
+              }, 'u_id')
+            })
+            .then(function (u_id) {
+              console.log('after add to events_users: ',u_id);
               return done(null, u_id[0]);
             });
         } else {
-          return done(null, user.id);
+          return done(null, user.u_id);
         }
       });
   }));
@@ -52,14 +62,29 @@ passport.serializeUser(function(user, done) {
   //later this will be where you selectively send to the browser 
   // an identifier for your user, like their primary key from the 
   // database, or their ID from linkedin
+  console.log('serializeUser',user);
 
   done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser(function(userId, done) {
+  console.log('deserializeUser',userId);
   // here is where you will go to the database and get the 
   // user each time from it's id, after you set up your db
-  done(null, user)
+    if ( userId ) {
+    knex('users')
+      .where({ u_id: userId })
+      .first()
+      .then(function (user) {
+        ( !user ) ? done() : done(null, user);
+      })
+      .catch(function (err) {
+        done(err, null);
+      })  
+  } else {
+    done();
+  }
+  // done(null, user)
 });
 
 // *** routes *** //
@@ -69,6 +94,7 @@ var places = require('./routes/places.js');
 var events = require('./routes/events.js');
 var profile = require('./routes/profile.js');
 var login = require('./routes/login.js');
+var pins = require('./routes/pins.js');
 
 // *** express instance *** //
 var app = express();
@@ -110,6 +136,7 @@ app.use('/places', places);
 app.use('/events',events);
 app.use('/profile',profile);
 app.use('/login', login);
+app.use('/pins', pins);
 
 
 // catch 404 and forward to error handler

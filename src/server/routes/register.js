@@ -10,8 +10,6 @@ router.get('/', function(req, res, next) {
 	.then(function(data){
 	  var info = data.rows
 	  console.log(data.rows)
-
-
 	  res.render('index', { 
 	  	image: info[0].e_img,
 	  	name: info[0].e_name,
@@ -22,9 +20,14 @@ router.get('/', function(req, res, next) {
  	    image3: info[2].e_img,
 	  	name3: info[2].e_name,
 	  	post3: info[2].post,
-	  	user: req.user
+	  	// user: req.user
       });
 	});
 });
+
+router.get('/login', function(req, res, next) {
+  res.render('login', { title: 'Login' });
+});
+
 
 module.exports = router;

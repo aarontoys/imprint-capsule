@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-     <link rel="stylesheet" href="/css/index.css">
-     <link rel="stylesheet" href="/css/users.css">
-  </head>
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-      <div class="row">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/">Home</a>
-          </div>
-         <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/places">Places</a>
-         </div>
-        <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/events">Events</a>
-         </div>
-          <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/profile">People</a>
-        </div>
-        </div>
-        </div>
-        </div>
-    </div>
-  </nav>
-  <body>
+{% extends '../layout.html' %}
 
 {% block title %}{% endblock %}
 
@@ -51,12 +20,12 @@
                  <form action="" method="post">
                     <fieldset class="form-group">
                       <label for="email">Email address</label>
-                      <input type="email" class="form-control" id="email" name="email">
+                      <input type="email" class="form-control" id="email" name="email" required>
                     </fieldset>
 
                     <fieldset class="form-group">
                       <label for="first name">First Name</label>
-                      <input type="text" class="form-control" id="fname" name="fname">
+                      <input type="text" class="form-control" id="fname" name="fname" required>
                     </fieldset>
 
                     <fieldset class="form-group">
@@ -66,12 +35,12 @@
                     
                     <fieldset class="form-group">
                       <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="password" name="password">
+                      <input type="password" class="form-control" id="password" name="password" required>
                     </fieldset>
 
                     <fieldset class="form-group">
                       <label for="bio">About you</label>
-                      <textarea class="form-control" id="bio" rows="3" name="bio"></textarea>
+                      <textarea class="form-control" id="bio" rows="3" name="bio" required></textarea>
                     </fieldset>
 
                     <label for="avatars">Choose Your Avatar</label>
