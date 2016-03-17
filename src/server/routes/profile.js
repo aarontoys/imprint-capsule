@@ -64,7 +64,7 @@ router.post('/:id/delete', function(req,res,next) {
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
  queriesag.getSingleUser(id).then(function(results) {
-   res.render('users/profile', { title: 'Show User Profile'+id, results: results });
+   res.render('users/profile', { title: 'Show User Profile'+id, results: results, id: id });
   })
 
 });

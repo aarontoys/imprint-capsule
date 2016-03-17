@@ -18,6 +18,9 @@
         <small> Last Imprinted <time>{{results[0].createdat}}</time></small>
         <hr>
         <p>{{results[0].bio}}</p>
+        {% if user.u_id == id %}
+        <button class="btn btn-success">Edit</button>
+        {% endif %}
     </div>
   </div>
 
