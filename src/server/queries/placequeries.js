@@ -24,7 +24,7 @@ module.exports = {
             return results;
         });
     },
-<<<<<<< HEAD
+
     proximity: function(lat, long, bounds){
         var bounds = bounds;
         var proximityObj = {};
