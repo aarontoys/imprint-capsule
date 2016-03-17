@@ -5,52 +5,6 @@
 
 {% block content %}
 
-
-<!-- merge conflict -->
-<!--   <div class="media">
-    <div class="media-left media-middle">
-      <a href="#">
-        <img class="media-object img-circle " src="{{results[0].u_img}}" alt="userimg">
-      </a>
-    </div>
-    <div class="media-body">
-      <h3 class="media-heading">{{results[0].fname}} {{results[0].lname}}</h3>
-        <h4>Count | Title</h4>
-        <small> Last Imprinted <time>{{results[0].createdat}}</time></small>
-        <hr>
-        <p>{{results[0].bio}}</p>
-        {% if user.u_id == id %}
-        <button class="btn btn-success">Edit</button>
-        <button class="btn btn-danger">Delete</button>
-        {% endif %}
-    </div>
-  </div>
-
-  <h2>Imprints</h2>
-item id = {{item.e_id}}
-
-{% if !item.e_id %}
-<h1>No Imprints Yet</h1>
-{% endif %}
-    
-    {% for item in results %}
-      <div class="col-sm-4 row-eq-height">
-        <div class ="username">
-          <div class="media">
-            <div class="media">
-            <a href="/places/{{item.e_id}}">
-            <img class="event-img-small" src="{{item.e_img}}" alt="userimg"></a>
-            </div>
-            <br />
-            <div class="media-body">
-              <h5 class="media-heading">
-              <a href="/places/{{item.e_id}}">
-              {{ item.e_name }}</a></h5>
-              <h6>Imprint</h6>
-              <p>{{ item.created_at }}
-              <br>
-              {{item.post}}</p> -->
-<!-- end merge conflict -->
 <div class="row">
     <div id="login-overlay" class="modal-dialog user">
       <div class="modal-content">
@@ -74,11 +28,15 @@ item id = {{item.e_id}}
                         </h4>
                         <small> Last Imprinted <time>{{ results[0].created_at|date('Y-m-d H:i:s') }}</time></small>
                         {% endif %}
+                        {% if user.u_id == id %}
+                          <button class="btn btn-success">Edit</button>
+                          <button class="btn btn-danger">Delete</button>
+                        {% endif %}
                         <hr>
                         <p>{{results[0].bio}}</p>
-                        {% if user.u_id == id %}
+                    <!--     {% if user.u_id == id %}
                         <button class="btn btn-success">Edit</button>
-                        {% endif %}
+                        {% endif %} -->
                     </div>
                    </div> 
                 {% if eid == null %}
@@ -111,7 +69,6 @@ item id = {{item.e_id}}
                   </div>
                 </div>
               </div>
->>>>>>> upstream/master
             </div>
         </div>
 
