@@ -58,3 +58,9 @@ body {
 #home-space {
   margin: 0px 40px;
 }
+
+.left {
+  float: right;
+  margin-right: 30px;
+  margin-top: -63px;
+}

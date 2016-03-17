@@ -68,20 +68,13 @@ router.post('/:id', function(req,res,next) {
 
 router.get('/:id/proximity', function (req, res, next) {
   console.log('query params:', req.query);
-  // res.status(200).json('ok');
-
     var id = req.params.id;
     placequery.getSingleEvents(id).then(function(results) {
     var eventLat = parseFloat(results[0].e_latitude);
     var eventLon = parseFloat(results[0].e_longitude);
-    
     var locationProximity = placequery.proximity(eventLat, eventLon, .03);
     var userProx = placequery.proximity(req.query.lat, req.query.lon, .000);
     var overlap = placequery.proximityOverlap(userProx, locationProximity);
-    // console.log('local:', local, "id:", id);
-    // console.log('eventLat:', eventLat, 'locationProximityTopRight:', locationProximity.topRightLat)
-    // console.log('user:', userProx, 'locationProximity:', locationProximity)
-    // console.log(overlap)
     res.status(200).json(overlap);
   });
 });
@@ -89,7 +82,6 @@ router.get('/:id/proximity', function (req, res, next) {
 // new
 router.get('/geo', function(req, res, next) {
   var key = process.env.MAPS;
-  // console.log(key);
   res.render('places/geo', { title: 'Geo test', api: key});
 });
 

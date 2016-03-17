@@ -35,6 +35,8 @@ footer a{
 .login{
   float: right;
   margin-right: 2%;
+  font-weight: bold;
+  margin-top: 5px;
 }
 
 .jumbotron {
