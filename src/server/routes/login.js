@@ -12,12 +12,10 @@ router.get('/facebook', function (req, res, next) {
 },passport.authenticate('facebook',{ authType: 'rerequest', scope: ['email'] })); 
 
 router.get('/facebook/callback', passport.authenticate('facebook', {successReturnToOrRedirect: '/'}));
-  // { failureRedirect: '/' }),
-  // function (req, res, next) {
-  //   // Successful authentication, redirect home.
-  //   // console.log('user: ', req.user);
-  //   res.redirect('/');
-  // });
+
+router.post('/login', function (req, res, next) {
+  req.session.returnTo = req.session.originalUrl;
+}, passport.authenticate('local', {successReturnToOrRedirect: '/'}));
 
 router.get('/logout', function (req, res, next) {
   console.log('Req Headers: ',req.headers);
