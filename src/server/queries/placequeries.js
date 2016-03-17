@@ -20,7 +20,6 @@ module.exports = {
         .fullOuterJoin('users', 'users.u_id', 'posts.u_id')
         .where('events.e_id', id)
         .then(function(results) {
-            // console.log(results);
             return results;
         });
     },
