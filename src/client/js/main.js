@@ -81,51 +81,24 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    // ajax call to your route
-    // return json from the route with a boolean
-    // if true, show comment box
-    // if false, hide comment box
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
     var url = window.location.href;
     var id = url.substr(url.length - 1)
-    // console.log(window.location.href, id);
 
     $.get('/places/'+id+'/proximity?lat=' + lat + '&lon=' + lon, function (result) {
-    	( result ) ? $("#imprintBox").show() : $("#imprintBox").hide();
+    	if ( result ) {
+            $("#imprintBox").show() 
+        } else {
+            $("#imprintBox").hide()
+            $("#out_of_location").addClass("alert alert-warning").append("<p>You must be within range to post</p>");
+        }
     })
 }
 
 
+// date/time issue
 
-// function proximity(lat, long){
-// 	var threeHundredFeet = .0001;
-// 	var proximityObj = {};
-
-// 	proximityObj.topRightLat = lat + threeHundredFeet;
-// 	proximityObj.topRightLong = long + threeHundredFeet;
-// 	proximityObj.bottomRightLat = lat - threeHundredFeet;
-// 	proximityObj.bottomRightLong = long + threeHundredFeet;
-// 	proximityObj.topLeftLat = lat + threeHundredFeet;
-// 	proximityObj.topLeftLong = long - threeHundredFeet;
-// 	proximityObj.bottomLeftLat = lat - threeHundredFeet;
-// 	proximityObj.bottomLeftLong = long - threeHundredFeet;
-
-// 	return proximityObj;
-// }
-
-
-// function userProximityComparison(lat, long){
-// 	var proximityObj = proximity(lat, long);
-// 	console.log(proximityObj)
-
-// }
-
-
-
-
-
-
-
-
-
+var dateTime = Date();
+var date = dateTime.split(' ', 5).join(' ');
+$('#created_at').val(date);
