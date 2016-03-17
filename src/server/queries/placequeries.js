@@ -24,20 +24,85 @@ module.exports = {
             return results;
         });
     },
-    addEvent: function(e_name, desc, start, end, e_latitude, e_longitude, et_id){
+<<<<<<< HEAD
+    proximity: function(lat, long, bounds){
+        var bounds = bounds;
+        var proximityObj = {};
+        console.log(lat, long)
+        proximityObj.topRightLat = lat + bounds;
+        proximityObj.topRightLong = long + bounds;
+        proximityObj.bottomRightLat = lat - bounds;
+        proximityObj.bottomRightLong = long + bounds;
+        proximityObj.topLeftLat = lat + bounds;
+        proximityObj.topLeftLong = long - bounds;
+        proximityObj.bottomLeftLat = lat - bounds;
+        proximityObj.bottomLeftLong = long - bounds;
+
+        return proximityObj;
+    },
+
+
+    proximityOverlap: function(userProx, locProx){
+        if((userProx.topRightLat < locProx.topRightLat && userProx.bottomLeftLat > locProx.bottomLeftLat
+         && userProx.topRightLong < locProx.topRightLong && userProx.bottomLeftLong >locProx.bottomLeftLong) ||
+            (userProx.topLeftLat < locProx.topLeftLat && userProx.bottomRightLat > locProx.bottomRightLat
+         && userProx.topLeftLong < locProx.topLeftLong && userProx.bottomRightLong >locProx.bottomRightLong)
+            )
+
+            //attempt 1
+        //((userProx.topRightLat < locProx.topRightLat && userProx.topRightLong < locProx.topRightLong) || 
+        //    (userProx.topLeftLat < locProx.topLeftLat && userProx.topLeftLong > locProx.topLeftLong) ||
+        //    (userProx.bottomLeftLat > locProx.bottomLeftLat && userProx.bottomLeftLong > locProx.bottomLeftLong) ||
+        //    (userProx.bottomRightLat > locProx.bottomRightLat && userProx.bottomRightLong < locProx.bottomRightLong)){
+           //attempt 2 
+           // (locProx.bottomLeftLat < userProx.bottomLeftLat < locProx.topRightLat && locProx.bottomLeftLong < userProx.bottomLeftLong < locProx.topRightLong) ||
+           //  (locProx.bottomLeftLat < userProx.topRightLat < locProx.topRightLat && locProx.bottomLeftLong < userProx.topRightLong < locProx.topRightLong)
+
+           { return true;
+        } else  {
+            return false;
+        }
+        // compare the two proximity objects
+        // if the userProx is completely contained by locProx
+        //   return true
+        // else
+        //   return false
+    },
+
+
+
+
+    // addEvent: function(e_name, desc, start, end, e_latitude, e_longitude, et_id){
+
+    addEvent: function(e_name,desc,start,end,e_latitude,e_longitude,public,code,e_img,et_id) {
         return events().insert({
             e_name: e_name,
-            desc: desc,
+            desc: desc,           
             start: start,
             end: end,
-            e_latitude: e_latitude ,
+            e_latitude: e_latitude,
             e_longitude: e_longitude,
+            public: public,
+            code: code,
+            e_img: e_img,
             et_id: et_id
+        })
+        .then(function(results) {
+            console.log("ETID"+et_id)
+            return results;
+        });
+    },
+       addImprint: function(post,created_at,e_id,u_id) {
+        return posts().insert({
+            post: post,
+            created_at: created_at,           
+            e_id: e_id,
+            u_id: u_id,
         })
         .then(function(results) {
             return results;
         });
-    }
+    }    
     // editUser: function(id,fname,lname,email,password,img,bio) {
     //     return Users().where('u_id',id).update({
     //         fname: fname,

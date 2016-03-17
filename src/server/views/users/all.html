@@ -1,38 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-     <link rel="stylesheet" href="/css/index.css">
-     <link rel="stylesheet" href="/css/users.css">
-  </head>
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-      <div class="row">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/">Home</a>
-          </div>
-         <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/places">Places</a>
-         </div>
-        <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/events">Events</a>
-         </div>
-          <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/profile">People</a>
-        </div>
-        </div>
-        </div>
-        </div>
-    </div>
-  </nav>
-  <body>
+{% extends '../layout.html' %}
 
 {% block title %}{% endblock %}
-
 
 {% block content %}
 
@@ -40,28 +8,26 @@
 
     <h1>{{ title }}</h1>
 
-     <div class="row">
+     <div class="row row_even">
      {% for item in array %}
-      <div class="col-sm-3 row-eq-height">
+      <div class="col-sm-3 row_even">
         <div class ="username">
           <div class="media">
             <div class="media-left">
             <a href="/profile/{{item.u_id}}">
-            <img class="media-object img-circle usr-img-small" src="{{item.u_img}}" alt="userimg">
+            <img class="media-object img-circle usr-img-small" src="{{item.u_img}}" alt="userimg"></a>
             </div>
             <div class="media-body">
               <h5 class="media-heading">
-              {{ item.fname }} {{item.lname}} </a></h5>
-              <h6>Count | Title</h6>
-              <small> Last Imprint <time>{{item.created_at}}</time></small>
+              <a href="/profile/{{item.u_id}}">{{ item.fname }} </a> </h5>
               <p>{{item.bio}}</p>
             </div>
           </div>
         </div>
       </div>
      {% endfor %}         
-     </div> 
 
+   </div>
   </div>
 
 {% endblock %}
