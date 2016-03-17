@@ -10,8 +10,6 @@ router.get('/', function(req, res, next) {
 	.then(function(data){
 	  var info = data.rows
 	  console.log(data.rows)
-
-
 	  res.render('index', { 
 	  	image: info[0].e_img,
 	  	name: info[0].e_name,

@@ -16,18 +16,23 @@ a {
 }
 
 .username {
-  border: 1px solid gray;
   margin: 5px;
   padding: 5px;
 }
 
-.row-eq-height {
+.row_even {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display:         flex;
+  flex-wrap: wrap;
 }
-
+.row_even > [class*='col-'] {
+/*  display: flex;
+  flex-direction: column;*/
+  height: 150px;
+  overflow: hidden;
+}
 /******User Images******/
 
 .usr-img-small {
@@ -50,3 +55,10 @@ a {
   width: 200px;
   height: 200px;
 }
+
+.placeimg{
+  height: 250px;
+  width: 250px;
+}
+
+

@@ -14,18 +14,19 @@
     </div>
     <div class="media-body">
       <h3 class="media-heading">{{results[0].fname}} {{results[0].lname}}</h3>
-        <h4>Count | Title</h4>
-        <small> Last Imprinted <time>{{results[0].createdat}}</time></small>
+        <h4>Imprints: {{ count }} | Title</h4>
+        <small> Last Imprinted <time>{{ results[0].created_at|date('Y-m-d H:i:s') }}</time></small>
         <hr>
         <p>{{results[0].bio}}</p>
     </div>
   </div>
 
-  <h2>Imprints</h2>
-item id = {{item.e_id}}
 
-{% if !item.e_id %}
-<h1>No Imprints Yet</h1>
+<h2>Imprints</h2>
+item id = {{ e_id }}
+
+{% if e_id == null %}
+<h3>No Imprints Yet</h3>
 {% endif %}
     
     {% for item in results %}
@@ -42,7 +43,7 @@ item id = {{item.e_id}}
               <a href="/places/{{item.e_id}}">
               {{ item.e_name }}</a></h5>
               <h6>Imprint</h6>
-              <p>{{ item.created_at }}
+              <p>{{ results[0].created_at|date('Y-m-d H:i:s') }}
               <br>
               {{item.post}}</p>
             </div>

@@ -24,20 +24,35 @@ module.exports = {
             return results;
         });
     },
-    addEvent: function(e_name, desc, start, end, e_latitude, e_longitude, et_id){
+    addEvent: function(e_name,desc,start,end,e_latitude,e_longitude,public,code,e_img,et_id) {
         return events().insert({
             e_name: e_name,
-            desc: desc,
+            desc: desc,           
             start: start,
             end: end,
-            e_latitude: e_latitude ,
+            e_latitude: e_latitude,
             e_longitude: e_longitude,
+            public: public,
+            code: code,
+            e_img: e_img,
             et_id: et_id
+        })
+        .then(function(results) {
+            console.log("ETID"+et_id)
+            return results;
+        });
+    },
+       addImprint: function(post,created_at,e_id,u_id) {
+        return posts().insert({
+            post: post,
+            created_at: created_at,           
+            e_id: e_id,
+            u_id: u_id,
         })
         .then(function(results) {
             return results;
         });
-    }
+    }    
     // editUser: function(id,fname,lname,email,password,img,bio) {
     //     return Users().where('u_id',id).update({
     //         fname: fname,

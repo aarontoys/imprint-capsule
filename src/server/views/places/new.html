@@ -30,49 +30,67 @@
   </nav>
   <body>
 
-<form method="POST" action="/places/create">
-  <fieldset class="form-group">
-    <label for="name">Name</label>
-    <input name="e_name" type="text" class="form-control" id="name" placeholder="Name of Location">
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="latitude">Latitude of Location</label>
-    <input name="e_latitude" type="text" class="form-control" id="latitude" placeholder="Latitue">
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="Longitude">Longitude of Location</label>
-    <input name="e_longitude" type="text" class="form-control" id="Longitude" placeholder="Longitude">
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="type">Type of Location:</label>
-    <select name="et_id" class="form-control" id="type">
-      <option value="1">Art</option>
-      <option value="2">Event</option>
-      <option value="3">Food/Drink</option>
-      <option value="4">Nature</option>
-      <option value="5">Sports</option>
-      <option value="6">Other</option>
-    </select>
-  </fieldset>
-  <fieldset class="form-group">
-    <label>Start: </label>
-    <input name="start" type="text">
-  </fieldset>
-  <fieldset class="form-group">
-    <label>End: </label>
-    <input name="end" type="text">
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="description">Description of Location:</label>
-    <textarea name="desc" class="form-control" id="description" rows="5"></textarea>
-  </fieldset>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="jumbotron">
+  <div class="section">
+   <div class="row">
+    <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="register_label">Add a Guestbook</h4>
+        </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="well">
+                <form method="POST" action="/places/create">
+                  <fieldset class="form-group">
+                    <label for="name">Name</label>
+                    <input name="e_name" type="text" class="form-control" id="name" placeholder="Name of Guestbook">
+                  </fieldset>
+                 <fieldset class="form-group">
+                    <label for="address">Address (include city and state)</label>
+                    <input name="address" type="text" class="form-control" id="address" placeholder="example 111 S High St, Denver, CO">
+                  </fieldset>
+                  
+                    
+                    <input name="e_latitude" type="hidden" class="form-control" id="latitude" placeholder="Latitude" value = "">
+
+                    <input name="e_longitude" type="hidden" class="form-control" id="longitude" placeholder="Longitude">
+
+                  <fieldset class="form-group">
+                    <label for="type">Type of Guestbook:</label>
+                    <select name="et_id" class="form-control" id="type">
+                      <option value="1">Art</option>
+                      <option value="2">Event</option>
+                      <option value="3">Food/Drink</option>
+                      <option value="4">Nature</option>
+                      <option value="5">Sports</option>
+                      <option value="6">Other</option>
+                    </select>
+                  </fieldset>
+
+                  <fieldset class="form-group">
+                    <label for="description">Description of Guestbook:</label>
+                    <textarea name="desc" class="form-control" id="description" rows="5"></textarea>
+                  </fieldset>
+                  <input type="hidden" value="{{ usrid }}" name="userid">
+                  <input type="hidden" value="{{ usrtype }}" name="usertype">
+ 
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="/js/googlemaps.js"></script>
+    <script type="text/javascript" src="/js/guestbooks.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ api }}&callback=makeCoords"></script>
+    <script type="text/javascript" src="/js/geocoding.js"></script>
   </body>
 </html>

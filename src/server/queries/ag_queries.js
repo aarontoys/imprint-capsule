@@ -15,7 +15,6 @@ module.exports = {
         .fullOuterJoin('events', 'posts.e_id', 'events.e_id')
         .where('users.u_id',id)
         .then(function(results) {
-        console.log("user join"+JSON.stringify(results));
             return results;
         });
     },
@@ -43,7 +42,6 @@ module.exports = {
             bio: bio
         })
         .then(function(results) {
-            console.log("edit user results"+results);
             return results;
         }); 
     },
