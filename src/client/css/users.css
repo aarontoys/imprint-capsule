@@ -87,4 +87,12 @@ a {
   width: 250px;
 }
 
+/******* User Page ************/
+.user{
+  width:80%;
+}
+
+.user-spacing {
+  padding: 25px;
+}
 
