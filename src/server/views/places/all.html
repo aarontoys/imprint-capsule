@@ -10,6 +10,15 @@
       <div class="col-md-12">
         <h1>{{ title }}
         <a class="btn btn-success" href="/places/create">Create Guestbook</a>
+<<<<<<< HEAD
+=======
+        <button class="allbtn btn btn-primary pull-right">All Places</button>
+   <!--      {% if user %}
+        <a class="btn btn-success" href="/places/create">Create Guestbook</a>
+        {% else %}
+        <a class="btn btn-success" href="/login/facebook">Create Guestbook</a>
+        {% endif %} -->
+>>>>>>> 49fc0d21d74348c490cf04961ebecef6264e9eed
         </h1>
       </div>
     </div>
@@ -20,10 +29,31 @@
       </div>
     </div>
 
+    <div class="row center margin-top">
+      <div class="col-md-2">
+        <button class="artbtn btn btn-primary">Art</button>
+      </div>
+      <div class="col-md-2">
+        <button class="eventbtn btn btn-primary">Event</button>
+      </div>
+      <div class="col-md-2">
+        <button class="foodbtn btn btn-primary">Food/Drink</button>
+      </div>
+      <div class="col-md-2">
+        <button class="naturebtn btn btn-primary">Nature</button>
+      </div>
+      <div class="col-md-2">
+        <button class="sportsbtn btn btn-primary">Sports</button>
+      </div>
+      <div class="col-md-2">
+        <button class="otherbtn btn btn-primary">Other</button>
+      </div>
+    </div>
+
     <div class="row margin-top row_places">
       {% for item in array %}
-      <div class="col-md-4 panel panel-default">
-       <div class = "space"
+      <div class="col-md-4 panel panel-default {{ item.e_type }}">
+       <div class="space">
         <h4><a href="/places/{{ item.e_id }}">{{ item.e_name }}</a></h4>
         <div class="center">
           <a href="/places/{{ item.e_id }}"> <img class="placeimg" src="{{ item.e_img }}"> </a>  

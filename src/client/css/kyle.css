@@ -52,5 +52,9 @@ body {
 
 .thumbnail {
   height: 450px;
-  overflow: hidden;
+  overflow: hidden;  
+}
+
+#home-space {
+  margin: 0px 40px;
 }

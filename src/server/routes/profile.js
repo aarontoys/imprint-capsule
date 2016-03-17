@@ -5,6 +5,8 @@ var connectionString = 'postgres://localhost:5432/imprints';
 var knex = require('../../../db/knex');
 var queries = require('./queries');
 var queriesag = require('../queries/ag_queries');
+var util = require('../helpers/util');
+var passport = require('passport');
 
 
 //get new user/registration page
@@ -19,11 +21,25 @@ router.post('/new', function(req,res,next) {
   var fname = req.body.fname;
   var lname = req.body.lname;
   var email = req.body.email;
-  var password = req.body.password;
+  var hashedPW = util.hashing(req.body.password);
   var img = req.body.img;
   var bio = req.body.bio;
-  queriesag.addUser(fname,lname,email,password,img,bio).then(function(results) {
-  res.redirect('/places');
+  queriesag.addUser(fname,lname,email,hashedPW,img,bio)
+    .then(function() {
+      passport.authenticate('local', function (err, user){
+        if (err) {
+          return next(err);
+        } else {
+          console.log('user line 33', user);
+          req.logIn(user, function(err) {
+            if (err) {
+              return next(err);
+            } else {
+              return res.redirect('/');
+            }
+          });
+        }
+    }) (req, res, next);
   });
 });
 
