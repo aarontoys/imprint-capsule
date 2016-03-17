@@ -26,7 +26,7 @@ function showPosition(position) {
             $("#imprintBox").show() 
         } else {
             $("#imprintBox").hide()
-            $("#out_of_location").append("<h3>You are out of Range - you must be nearby to imprint</h3>");
+            $("#out_of_location").addClass("alert alert-warning").append("<p>You must be within range to post</p>");
         }
     })
 }
