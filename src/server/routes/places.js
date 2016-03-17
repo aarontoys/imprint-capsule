@@ -5,6 +5,7 @@ var connectionString = 'postgres://localhost:5432/imprints';
 var knex = require('../../../db/knex');
 var queries = require('./queries');
 var placequery = require('../queries/placequeries');
+var util = require('../helpers/util.js');
 
 // get all
 router.get('/', function(req, res, next) {
@@ -12,6 +13,11 @@ router.get('/', function(req, res, next) {
  res.render('places/all', { title: 'All Guestbooks', array: results });
   });
 });
+
+
+// Create a new one
+router.get('/create', util.ensureAuthenticated, function(req, res, next) {
+  res.render('places/new', { title: 'All Places' });
 
 // Get info to create a new guestbook
 router.get('/create/:id', function(req, res, next) {
