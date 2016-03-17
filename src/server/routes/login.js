@@ -17,8 +17,9 @@ router.get('/facebook/callback', passport.authenticate('facebook', {successRetur
   // });
 
 router.get('/logout', function (req, res, next) {
+  console.log('Req Headers: ',req.headers);
   req.session = null;
-  res.redirect('/');
+  res.redirect(req.headers.referer);
 })
 
 module.exports = router;
