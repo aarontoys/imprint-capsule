@@ -52,7 +52,7 @@ router.post('/:id', function(req,res,next) {
   var post = req.body.post;
   var created_at = req.body.created_at;
   var e_id = req.params.id;
-  var u_id = 1;
+  var u_id = req.body.u_id;
   placequery.addImprint(post,created_at,e_id,u_id).then(function(results) {
   res.redirect('/places/'+e_id);
   });
