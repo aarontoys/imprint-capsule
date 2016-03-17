@@ -42,18 +42,25 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
+    <div class="row" >
     {% for item in array %}
-      <div class="col-sm-9">
+      <div class="col-sm-3" id="personal">
+      <div class="card">
+       <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+         <div class="avatar">
+          <img src="{{ item.u_img }}" class="profile">
+         </div>   
+         <div class="content">
         <h5>{{ item.fname }}</h5>
         <p>{{ item.post }}</p>
+      
       </div>
-      <div class="col-sm-3 center">
-        <img src="{{ item.u_img }}" class="profile">
+      </div>
       </div>
     {% endfor %}
     </div>
 </div>
 
 {% endblock %}
+
+ 

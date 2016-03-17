@@ -53,11 +53,14 @@ router.get('/:id', function(req, res, next) {
   console.log('err:', res.status)
   var arr = [];
   placequery.getSingleEvents(id).then(function(results) {
+    if(!results.length){
+      res.redirect('/places');
+    } else {
     // if results is an empty array
     // then redirect
     // else render
     res.render('places/single', { title: 'hello', array: results, id:id });
-      
+      }
   })
 });
 
