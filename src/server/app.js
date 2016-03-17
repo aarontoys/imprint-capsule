@@ -26,6 +26,7 @@ passport.use(new FacebookStrategy({
     //   return cb(err, user);
     // });
     console.log('logging in with passport-facebook');
+    console.log(profile);
     knex('users')
       // .innerJoin('events_users', 'events_users.u_id', 'users.u_id')
       .where({sm_id: profile.id})

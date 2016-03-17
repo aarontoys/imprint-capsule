@@ -6,7 +6,7 @@ var knex = require('../../../db/knex');
 var queries = require('./queries');
 var passport = require('passport');
 
-router.get('/facebook', passport.authenticate('facebook')); 
+router.get('/facebook', passport.authenticate('facebook',{ authType: 'rerequest', scope: ['email'] })); 
 
 router.get('/facebook/callback', passport.authenticate('facebook', {successReturnToOrRedirect: '/'}));
   // { failureRedirect: '/' }),
