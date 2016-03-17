@@ -45,15 +45,21 @@
         <h3 class="center">About {{ array[0].e_name }}</h3>
         <h4 class="center">{{ array[0].e_type }}</h4>
         <p>{{ array[0].desc }}</p>
+        <p>{{ array[0].e_latitude }}</p>
+        <p>{{ array[0].e_longitude }}</p>
+        <p id="proximity"></p>
+        <button onclick="getLocation()">Try It</button>
+        <p id="demo"></p>
+
       </div>
     </div>
     
-    <form class="margin-top">
-    <div class="form-group">
-      <label for="">Imprint: </label>
-      <textarea class="form-control" rows="5" cols="60" name="imprint" placeholder="Hello"></textarea>
-      <button type="button" class="btn btn-default">Imprint</button>
-    </div>
+    <form id="imprintBox" class="margin-top">
+      <div class="form-group">
+        <label for="">Imprint: </label>
+        <textarea class="form-control" rows="5" cols="60" name="imprint" placeholder="Hello"></textarea>
+        <button type="button" class="btn btn-default">Imprint</button>
+      </div>
     </form>
 
     <div class="row">
