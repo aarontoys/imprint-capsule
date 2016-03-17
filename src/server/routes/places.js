@@ -70,11 +70,10 @@ router.get('/:id/proximity', function (req, res, next) {
     var locationProximity = placequery.proximity(eventLat, eventLon, .03);
     var userProx = placequery.proximity(req.query.lat, req.query.lon, .000);
     var overlap = placequery.proximityOverlap(userProx, locationProximity);
-    var local = placequery.locationDef(id);
-    console.log('local:', local, "id:", id);
-    console.log('eventLat:', eventLat, 'locationProximityTopRight:', locationProximity.topRightLat)
-    console.log('user:', userProx, 'locationProximity:', locationProximity)
-    console.log(overlap)
+    // console.log('local:', local, "id:", id);
+    // console.log('eventLat:', eventLat, 'locationProximityTopRight:', locationProximity.topRightLat)
+    // console.log('user:', userProx, 'locationProximity:', locationProximity)
+    // console.log(overlap)
     res.status(200).json(overlap);
   });
 });

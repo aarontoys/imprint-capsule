@@ -24,7 +24,7 @@ function showPosition(position) {
     var lon = position.coords.longitude;
     var url = window.location.href;
     var id = url.substr(url.length - 1)
-    console.log(window.location.href, id);
+    // console.log(window.location.href, id);
 
     $.get('/places/'+id+'/proximity?lat=' + lat + '&lon=' + lon, function (result) {
     	( result ) ? $("#imprintBox").show() : $("#imprintBox").hide();

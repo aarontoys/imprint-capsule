@@ -9,7 +9,7 @@ module.exports = {
         return events()
         .innerJoin('event_types', 'events.et_id', 'event_types.et_id')
         .then(function(results) {
-            console.log(results);
+            // console.log(results);
             return results;
         });
     },
@@ -20,14 +20,14 @@ module.exports = {
         .fullOuterJoin('users', 'users.u_id', 'posts.u_id')
         .where('events.e_id', id)
         .then(function(results) {
-            console.log(results);
+            // console.log(results);
             return results;
         });
     },
     proximity: function(lat, long, bounds){
         var bounds = bounds;
         var proximityObj = {};
-        console.log(lat, long)
+        // console.log(lat, long)
         proximityObj.topRightLat = lat + bounds;
         proximityObj.topRightLong = long + bounds;
         proximityObj.bottomRightLat = lat - bounds;
@@ -101,15 +101,7 @@ module.exports = {
         });
     },
 
-     locationDef: function(id){
-        console.log(id)
-        if (id === 7){
-            return true;
-        } else {
-            return false;
-        }
-
-    },    
+        
     // editUser: function(id,fname,lname,email,password,img,bio) {
     //     return Users().where('u_id',id).update({
     //         fname: fname,
