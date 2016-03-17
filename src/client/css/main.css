@@ -1,4 +1,5 @@
 body {
+  font-family: "Times New Roman", Times, serif;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -14,10 +15,32 @@ a {
 }
 
 footer {
-  background-color: #F77F00;
+  height: 30vh;
+  background-image: url(https://images.unsplash.com/photo-1458236987605-990022dbce63?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5880bf560b88dc0fa2edd6f389a58368);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+footer h4 {
+  color:white;
+}
+
+footer a{
+  color: white;
+  text-decoration: none;
 }
 
 .login{
   float: right;
   margin-right: 2%;
+}
+
+.jumbotron {
+  background-image: url(https://images.unsplash.com/photo-1427805371062-cacdd21273f1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=7bd7472930019681f251b16e76e05595);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
