@@ -29,6 +29,11 @@
     </div>
   </nav>
   <body>
+   {% if user %}
+  <p>Welcome {{ user.fname }}! | <a href="/login/logout">Logout</a></p>
+  {% else %}
+  <p><a href="/login/facebook">Login</a></p>
+  {% endif %}
 
   <div class="container">
     <div class="row">
@@ -47,7 +52,7 @@
         <p>{{ array[0].desc }}</p>
       </div>
     </div>
-    
+    {% if user %}
     <form class="margin-top">
     <div class="form-group">
       <label for="">Imprint: </label>
@@ -55,6 +60,10 @@
       <button type="button" class="btn btn-default">Imprint</button>
     </div>
     </form>
+    {% else %}
+    <br>
+    <a class="btn btn-success" href="#">Add your imprint</a>
+    {% endif %}
 
     <div class="row">
     {% for item in array %}
