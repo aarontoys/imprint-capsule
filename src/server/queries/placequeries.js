@@ -9,7 +9,7 @@ module.exports = {
         return events()
         .innerJoin('event_types', 'events.et_id', 'event_types.et_id')
         .then(function(results) {
-            console.log(results);
+            // console.log(results);
             return results;
         });
     },

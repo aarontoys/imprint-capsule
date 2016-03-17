@@ -5,6 +5,7 @@ var connectionString = 'postgres://localhost:5432/imprints';
 var knex = require('../../../db/knex');
 var queries = require('./queries');
 var placequery = require('../queries/placequeries');
+var util = require('../helpers/util.js');
 
 // get all
 router.get('/', function(req, res, next) {
@@ -14,7 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 // Create a new one
-router.get('/create', function(req, res, next) {
+router.get('/create', util.ensureAuthenticated, function(req, res, next) {
   res.render('places/new', { title: 'All Places' });
 });
 
@@ -42,7 +43,7 @@ router.get('/:id', function(req, res, next) {
 // new
 router.get('/geo', function(req, res, next) {
   var key = process.env.MAPS;
-  console.log(key);
+  // console.log(key);
   res.render('places/geo', { title: 'Geo test', api: key});
 });
 
