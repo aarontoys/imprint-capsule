@@ -35,7 +35,7 @@ exports.seed = function(knex, Promise) {
           p_img: '../images/post4.jpg',
           e_id: 8,
           u_id: 4,
-          created_at: 2016-03-11 20:07:28-06
+          created_at: '2016-03-11 20:07:28-06'
         }),
     knex('posts').insert(
         {
@@ -43,7 +43,7 @@ exports.seed = function(knex, Promise) {
           p_img: '../images/post5.jpg',
           e_id: 3,
           u_id: 4,
-          created_at: 2016-03-09 20:07:28-06
+          created_at: '2016-03-09 20:07:28-06'
         })
 
 

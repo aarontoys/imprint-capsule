@@ -50,9 +50,16 @@ router.post('/create', function(req, res, next) {
 // get for an individual guestbook
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
+  console.log('err:', res.status)
+  var arr = [];
   placequery.getSingleEvents(id).then(function(results) {
+    if(!results.length){
+      res.redirect('/places');
+    } else {
+
     res.render('places/single', { title: 'hello', array: results, id:id });
-  });
+      }
+  })
 });
 
 //post to create new imprint
@@ -62,7 +69,7 @@ router.post('/:id', function(req,res,next) {
   var e_id = req.params.id;
   var u_id = req.body.u_id;
   placequery.addImprint(post,created_at,e_id,u_id).then(function(results) {
-  res.redirect('/places/'+e_id);
+  res.redirect('/places/'+ e_id);
   });
 });
 
