@@ -63,9 +63,9 @@
                     <input name="address" type="text" class="form-control" id="address" placeholder="example 111 S High St, Denver, CO" required>
                   </fieldset>
                                   
-                    <input name="e_latitude" type="hidden" class="form-control" id="latitude" placeholder="Latitude" value = "">
+                    <input name="e_latitude" type="text" class="form-control" id="latitude" placeholder="Latitude" value = "">
 
-                    <input name="e_longitude" type="hidden" class="form-control" id="longitude" placeholder="Longitude">
+                    <input name="e_longitude" type="text" class="form-control" id="longitude" placeholder="Longitude">
 
                   <fieldset class="form-group">
                     <label for="type">Type of Guestbook:</label>
@@ -120,11 +120,9 @@
 
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ api }&callback=makeCoords"></script>
-    <script type="text/javascript" src="/js/geocoding.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/pin.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ api }}&callback=makeCoords"></script>
+    <script type="text/javascript" src="/js/geocoding.js"></script>
 
   </body>
 </html>
