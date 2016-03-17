@@ -31,6 +31,7 @@ passport.use(new FacebookStrategy({
       .orWhere({email: profile.emails[0].value})
       .first()
       .then(function (user) {
+        console.log(user);
         if (!user) {
           return knex('users').insert({
             sm_id: profile.id,
@@ -43,7 +44,7 @@ passport.use(new FacebookStrategy({
               return done(null, u_id[0]);
             });
         } else {
-          return done(null, user.id);
+          return done(null, user.u_id);
         }
       });
   }));
@@ -52,14 +53,29 @@ passport.serializeUser(function(user, done) {
   //later this will be where you selectively send to the browser 
   // an identifier for your user, like their primary key from the 
   // database, or their ID from linkedin
+  console.log('serializeUser',user);
 
   done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser(function(userId, done) {
+  console.log('deserializeUser',userId);
   // here is where you will go to the database and get the 
   // user each time from it's id, after you set up your db
-  done(null, user)
+    if ( userId ) {
+    knex('users')
+      .where({ u_id: userId })
+      .first()
+      .then(function (user) {
+        ( !user ) ? done() : done(null, user);
+      })
+      .catch(function (err) {
+        done(err, null);
+      })  
+  } else {
+    done();
+  }
+  // done(null, user)
 });
 
 // *** routes *** //

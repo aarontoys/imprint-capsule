@@ -27,7 +27,7 @@
   </nav>
   <body>
   {% if user %}
-  <p>Welcome {{ user.name.givenName }}! | <a href="/login/logout">Logout</a></p>
+  <p>Welcome {{ user.fname }}! | <a href="/login/logout">Logout</a></p>
   {% else %}
   <p><a href="/login/facebook">Login</a></p>
   {% endif %}
