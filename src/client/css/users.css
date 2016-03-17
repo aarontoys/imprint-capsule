@@ -16,7 +16,7 @@ a {
 }
 
 .username {
-  margin: 5px;
+  margin: 20px;
   padding: 5px;
 }
 
@@ -33,7 +33,7 @@ a {
 .row_even > [class*='col-'] {
 /*  display: flex;
   flex-direction: column;*/
-  height: 150px;
+  height: 97px;
   overflow: hidden;
 }
 

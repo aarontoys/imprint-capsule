@@ -54,7 +54,7 @@ exports.seed = function(knex, Promise) {
           e_longitude: -105.200526,
           public: null,
           code: null,
-          e_img: 'http://www.dgcoursereview.com/course_pics/352/2132b721_m.jpg',
+          e_img: 'http://discgolfreviewer.com/wp-content/uploads/2012/05/20120522-214056.jpg',
           et_id: 5
         }),
       knex('events').insert(

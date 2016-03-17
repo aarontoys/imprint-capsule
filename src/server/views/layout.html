@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/main.css">
      <link rel="stylesheet" href="/css/index.css">
      <link rel="stylesheet" href="/css/users.css">
@@ -14,13 +15,13 @@
         <div class="row">
           <div class="collapse navbar-collapse center" id="bs-example-navbar-collapse-1">
             <div class="col-sm-4 col-md-4 col-lg-4">
-              <a class="nav" href="/">Home</a>
+              <a class="nav" href="/"><i class="fa fa-home"></i> Home</a>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4">
-             <a class="nav" href="/profile">Visitors</a>
+             <a class="nav" href="/profile"><i class="fa fa-compass"></i> Visitors</a>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4">
-             <a class="nav" href="/places">Guestbooks</a>
+             <a class="nav" href="/places"><i class="fa fa-book"></i> Guestbooks</a>
             </div>
         </div>
       </div>
@@ -34,7 +35,15 @@
       {% if user %}
       <p class="login">Welcome {{ user.fname }}! | <a href="/login/logout">Logout</a></p>
       {% else %}
-      <p class="login"><a href="/login/facebook">Login</a></p>
+      <div class="btn-group left">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Login <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><a href="/login/facebook">Login With Facebook</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </div>
       {% endif %}
       {% block content %}
       {% endblock %}
