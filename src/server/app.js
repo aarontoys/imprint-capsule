@@ -92,7 +92,6 @@ passport.deserializeUser(function(userId, done) {
 // var routes = require('./routes/index.js');
 var register = require('./routes/register.js');
 var places = require('./routes/places.js');
-var events = require('./routes/events.js');
 var profile = require('./routes/profile.js');
 var login = require('./routes/login.js');
 var pins = require('./routes/pins.js');
@@ -134,7 +133,6 @@ app.use(function (req, res, next) {
 });
 app.use('/', register);
 app.use('/places', places);
-app.use('/events',events);
 app.use('/profile',profile);
 app.use('/login', login);
 app.use('/pins', pins);

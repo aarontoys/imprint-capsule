@@ -38,10 +38,19 @@ body {
 }
 
 .placeimg{
-  height: 250px;
-  width: 250px;
+  min-height: 250px;
+  min-width: 250px;
 }
 .singleplace{
   height: 300px;
   width: 300px;
+}
+
+.caption {
+  text-align: center;
+}
+
+.thumbnail {
+  height: 450px;
+  overflow: hidden;
 }
