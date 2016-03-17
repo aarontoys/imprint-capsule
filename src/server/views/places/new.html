@@ -5,30 +5,42 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" type="text/css" href="/css/kyle.css">
+     <link rel="stylesheet" href="/css/index.css">
+     <link rel="stylesheet" href="/css/users.css">
+     <link rel="stylesheet" href="/css/kyle.css">
   </head>
     <nav class="navbar navbar-inverse">
       <div class="container">
-      <div class="row">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/">Home</a>
-          </div>
-         <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/places">Places</a>
-         </div>
-        <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/events">Events</a>
-         </div>
-          <div class="col-sm-3 col-md-3 col-lg-3">
-         <a class="nav" href="/profile">People</a>
+        <div class="row">
+          <div class="collapse navbar-collapse center" id="bs-example-navbar-collapse-1">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <a class="nav" href="/">Home</a>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+             <a class="nav" href="/profile">Visitors</a>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+             <a class="nav" href="/places">Guestbooks</a>
+            </div>
         </div>
-        </div>
-        </div>
-        </div>
+      </div>
+      </div>
     </div>
   </nav>
   <body>
+
+  <div class="row">
+    <div class="col-sm-12">
+      {% if user %}
+      <p class="login">Welcome {{ user.fname }}! | <a href="/login/logout">Logout</a></p>
+      {% else %}
+      <p class="login"><a href="/login/facebook">Login</a></p>
+      {% endif %}
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+    <hr>
 
 <div class="jumbotron">
   <div class="section">
@@ -51,9 +63,9 @@
                     <input name="address" type="text" class="form-control" id="address" placeholder="example 111 S High St, Denver, CO" required>
                   </fieldset>
                                   
-                    <input name="e_latitude" type="hidden" class="form-control" id="latitude" placeholder="Latitude" value = "">
+                    <input name="e_latitude" type="text" class="form-control" id="latitude" placeholder="Latitude" value = "">
 
-                    <input name="e_longitude" type="hidden" class="form-control" id="longitude" placeholder="Longitude">
+                    <input name="e_longitude" type="text" class="form-control" id="longitude" placeholder="Longitude">
 
                   <fieldset class="form-group">
                     <label for="type">Type of Guestbook:</label>
@@ -90,11 +102,27 @@
   </div>
 </div>
 
+  <footer class="row">
+    <div class="container-fluid">
+      <div class="col-md-4">
+        <h4 class="text-center">Imprints&copy;</h4>
+      </div>
+      <div class="col-md-4 center">
+        <h4>Quick Links</h4>
+        <p><a href="/">Home</a></p>
+        <p><a href="profile/">Visitors</a></p>
+        <p><a href="places/">Guest Books</a></p>
+      </div>
+      <div class="col-md-4 center">
+        <h4>By Aaron, Andy, Kyle &amp; Robby</h4>
+      </div>
+  </footer>
+
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/guestbooks.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ api }}&callback=makeCoords"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ api }}&callback=makeCoords"></script>
     <script type="text/javascript" src="/js/geocoding.js"></script>
+
   </body>
 </html>

@@ -13,5 +13,11 @@ a {
 	color: white; 
 }
 
+footer {
+  background-color: #F77F00;
+}
 
-
+.login{
+  float: right;
+  margin-right: 2%;
+}

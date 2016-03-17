@@ -65,7 +65,7 @@ router.get('/:id', function(req, res, next) {
  queriesag.getSingleUser(id).then(function(results) {
    var count = results.length;
    var eid = results[0].e_id;
-   res.render('users/profile', { title: 'Show User Profile'+id, results: results, count:count, eid:eid });
+   res.render('users/profile', { title: 'Show User Profile'+id, results: results, count:count, eid:eid, id: id });
   })
 
 });
