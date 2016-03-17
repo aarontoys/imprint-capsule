@@ -63,8 +63,10 @@ passport.use(new FacebookStrategy({
 
 passport.use(new LocalStrategy({
   usernameField: 'email'
+  // console.log('app.js 66');
 }, function(email, password, done) {
     // does the email exist?
+    console.log('app.js 68');
     knex('users').where('email', email)
     .then(function(data) {
       // email does not exist. return error.
