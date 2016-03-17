@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/kyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/users.css">
+
   </head>
     <nav class="navbar navbar-inverse">
       <div class="container">
@@ -43,19 +45,19 @@
       </div>
     </div>
 
-    <div class="row margin-top">
+    <div class="row margin-top row_places">
       {% for item in array %}
-      <div class="col-md-4 panel panel-default {{ item.e_type }}">
-        <h4>{{ item.e_name }}</h4>
+      <div class="col-md-4 panel panel-default">
+       <div class = "space"
+        <h4><a href="/places/{{ item.e_id }}">{{ item.e_name }}</a></h4>
         <div class="center">
-          <img class="placeimg" src="{{ item.e_img }}">    
+          <a href="/places/{{ item.e_id }}"> <img class="placeimg" src="{{ item.e_img }}"> </a>  
         </div>
         <p>{{ item.desc }}</p>
-        <a href="/places/{{ item.e_id }}">Link to {{ item.e_name }}</a>
+       </div>
       </div>
       {% endfor %}
     </div>
-
 
   </div>
 

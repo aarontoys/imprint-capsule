@@ -63,12 +63,9 @@ router.post('/:id/delete', function(req,res,next) {
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
  queriesag.getSingleUser(id).then(function(results) {
-   console.log("RESULTS ON SINGLE USER PAGE" +JSON.stringify(results[0]));
-   console.log("Length of results"+ results.length)
    var count = results.length;
-   var e_id = results[0].e_id;
-   console.log("This is E_ID"+ e_id)
-   res.render('users/profile', { title: 'Show User Profile'+id, results: results, count:count });
+   var eid = results[0].e_id;
+   res.render('users/profile', { title: 'Show User Profile'+id, results: results, count:count, eid:eid });
   })
 
 });

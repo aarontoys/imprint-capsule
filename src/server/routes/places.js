@@ -31,21 +31,18 @@ router.post('/create', function(req, res, next) {
   var e_longitude = req.body.e_longitude;
   var public = true;
   var code = null;
-  var e_img = null;
-  var et_id = req.body.et_id;
+  var e_img = req.body.e_img;
+  var et_id = parseInt(req.body.et_id);
   placequery.addEvent(e_name,desc,start,end,e_latitude,e_longitude,public,code,e_img,et_id).then(function(results){
-    console.log("ETID"+et_id.type)
     res.redirect('/places');
   });
 });
-
 
 
 // get for an individual guestbook
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
   placequery.getSingleEvents(id).then(function(results) {
-    console.log("Single EVENT"+JSON.stringify(results));
     res.render('places/single', { title: 'hello', array: results, id:id });
   });
 });

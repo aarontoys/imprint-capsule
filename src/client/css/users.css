@@ -20,6 +20,9 @@ a {
   padding: 5px;
 }
 
+
+/******  All User Columns  ******/
+
 .row_even {
   display: -webkit-box;
   display: -webkit-flex;
@@ -33,6 +36,29 @@ a {
   height: 150px;
   overflow: hidden;
 }
+
+/******  All Places Columns  ******/
+
+.row_places {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+
+}
+.row_places > [class*='col-'] {
+/*  display: flex;
+  flex-direction: column;*/
+  height: 350px;
+  overflow: auto;
+}
+
+.space {
+  margin: 10px;
+}
+
+
 /******User Images******/
 
 .usr-img-small {
