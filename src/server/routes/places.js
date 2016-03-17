@@ -56,11 +56,8 @@ router.get('/:id', function(req, res, next) {
     // if results is an empty array
     // then redirect
     // else render
-    if(results === arr){
-      res.redirect('/')
-    } else {
     res.render('places/single', { title: 'hello', array: results, id:id });
-      }
+      
   })
 });
 
