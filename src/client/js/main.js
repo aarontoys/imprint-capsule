@@ -3,6 +3,71 @@
 $(document).on('ready', function() {
   console.log('sanity check!');
   getLocation();
+
+  $(".allbtn").click(function(){
+        // $(".Food/Drink").fadeOut("slow");
+        $(".Event").show();
+        $(".Food-Drink").show();
+        $(".Nature").show();
+        $(".Sports").show();
+        $(".Other").show();
+        $(".Art").show();
+    });
+  $(".artbtn").click(function(){
+        // $(".Food/Drink").fadeOut("slow");
+        $(".Event").fadeOut("slow");
+        $(".Food-Drink").fadeOut("slow");
+        $(".Nature").fadeOut("slow");
+        $(".Sports").fadeOut("slow");
+        $(".Other").fadeOut("slow");
+        $(".Art").show();
+    });
+  $(".eventbtn").click(function(){
+        // $(".Food/Drink").fadeOut("slow");
+        $(".Art").fadeOut("slow");
+        $(".Food-Drink").fadeOut("slow");
+        $(".Nature").fadeOut("slow");
+        $(".Sports").fadeOut("slow");
+        $(".Other").fadeOut("slow");
+        $(".Event").show();
+    });
+  $(".foodbtn").click(function(){
+        // $(".Food/Drink").fadeOut("slow");
+        $(".Art").fadeOut("slow");
+        $(".Event").fadeOut("slow");
+        $(".Nature").fadeOut("slow");
+        $(".Sports").fadeOut("slow");
+        $(".Other").fadeOut("slow");
+        $(".Food-Drink").show();
+    });
+  $(".naturebtn").click(function(){
+        // $(".Food/Drink").fadeOut("slow");
+        $(".Art").fadeOut("slow");
+        $(".Event").fadeOut("slow");
+        $(".Food-Drink").fadeOut("slow");
+        $(".Sports").fadeOut("slow");
+        $(".Other").fadeOut("slow");
+        $(".Nature").show();
+    });
+  $(".sportsbtn").click(function(){
+        // $(".Food/Drink").fadeOut("slow");
+        $(".Art").fadeOut("slow");
+        $(".Event").fadeOut("slow");
+        $(".Food-Drink").fadeOut("slow");
+        $(".Nature").fadeOut("slow");
+        $(".Other").fadeOut("slow");
+        $(".Sports").show();
+    });
+  $(".otherbtn").click(function(){
+        // $(".Food/Drink").fadeOut("slow");
+        $(".Art").fadeOut("slow");
+        $(".Event").fadeOut("slow");
+        $(".Food-Drink").fadeOut("slow");
+        $(".Nature").fadeOut("slow");
+        $(".Sports").fadeOut("slow");
+        $(".Other").show();
+    });
+
 });
 
 var x = document.getElementById("demo");

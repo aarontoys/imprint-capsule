@@ -15,7 +15,7 @@ exports.seed = function(knex, Promise) {
         }),
     knex('event_types').insert(
         {
-          e_type: 'Food/Drink'
+          e_type: 'Food-Drink'
         }),
     knex('event_types').insert(
         {
