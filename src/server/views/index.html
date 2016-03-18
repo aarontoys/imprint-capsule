@@ -15,6 +15,7 @@
 <div class="jumbotron">
   <div class="section">
      <div class="row">
+     {% if !user %}
        <div id="login-overlay" class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -27,13 +28,16 @@
                           <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
                               <a href="/profile/new" class="btn btn-success btn-block">Register</a>
                               <a href="/login/facebook" class=" btn btn-primary btn-block">Login with Facebook</a>
+                              <a href="/login" class=" btn btn-default btn-block">Login</a>
                         </form>
                     </div>
                   </div>
                </div>
             </div>
+            
          </div>
       </div>
+      {% endif %}
    </div>
   </div>
 </div>	
