@@ -74,7 +74,6 @@ router.post('/:id', function(req,res,next) {
 });
 
 router.get('/:id/proximity', function (req, res, next) {
-  console.log('query params:', req.query);
     var id = req.params.id;
     placequery.getSingleEvents(id).then(function(results) {
     
