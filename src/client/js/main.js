@@ -86,6 +86,10 @@ function showPosition(position) {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
     var url = window.location.href;
+    if(url.substr(url.length - 4) === '#_=_') {
+        url = url.substr(0,url.length -4 );
+    }
+    console.log(url);
     var id = url.substr(url.length - 1);
 
     if(url.substr(0,url.length -1) === 'http://localhost:5000/places/' && $.isNumeric(id)) {
