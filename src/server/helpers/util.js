@@ -15,8 +15,8 @@ module.exports = {
     return bcrypt.compareSync(password, hashedPassword);
   },
   rewriteUrl: function (url) {
+    var secureUrl = process.env.HOST;
     console.log(secureUrl);
-    // var secureUrl = process.env.HOST;
     // if(url.split(':')[0] === 'http') {
     //   return secureUrl+'?url='+url;
     // } else {
