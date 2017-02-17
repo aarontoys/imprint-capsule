@@ -1,4 +1,5 @@
 var bcrypt = require('bcrypt');
+var colors = require('colors');
 
 module.exports = {
   ensureAuthenticated: function (req, res, next) {
@@ -16,7 +17,7 @@ module.exports = {
   },
   rewriteUrl: function (url) {
     var secureUrl = process.env.HOST;
-    console.log(secureUrl);
+    console.log('My HOST is: '.yellow, secureUrl.yellow);
     // if(url.split(':')[0] === 'http') {
     //   return secureUrl+'?url='+url;
     // } else {
