@@ -1,7 +1,7 @@
 // add scripts
 
 $(document).on('ready', function() {
-  console.log('sanity check!');
+  // console.log('sanity check!');
   getLocation();
 
   $(".allbtn").click(function(){
@@ -89,7 +89,7 @@ function showPosition(position) {
     if(url.substr(url.length - 4) === '#_=_') {
         url = url.substr(0,url.length -4 );
     }
-    console.log(url);
+    // console.log(url);
     var id = url.substr(url.length - 1);
 
     if(url.substr(0,url.length -1) === 'http://localhost:5000/places/' && $.isNumeric(id)) {
