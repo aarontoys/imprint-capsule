@@ -13,5 +13,16 @@ module.exports = {
   },
   comparePassword: function (password, hashedPassword) {
     return bcrypt.compareSync(password, hashedPassword);
+  },
+  rewriteUrl: function (url) {
+    console.log(secureUrl);
+    // var secureUrl = process.env.HOST;
+    // if(url.split(':')[0] === 'http') {
+    //   return secureUrl+'?url='+url;
+    // } else {
+    //   return url;
+    // }
+
+    return url;
   }
 }
