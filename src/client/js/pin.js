@@ -3,7 +3,13 @@ var map;
 
 $(document).ready(function () {
   $.getJSON("/pins/api", function(json) {
-    initMap(json);
+
+    //if <div class="map" id="map"></div> exists on the page, initMap
+
+    if (document.getElementById('map')) {
+      initMap(json);
+    }
+    
   });
 });
 
