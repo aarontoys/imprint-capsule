@@ -88,7 +88,8 @@ footer {
 
 footer{
   height: 30vh;
-  background-image: url(https://images.unsplash.com/photo-1458236987605-990022dbce63?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5880bf560b88dc0fa2edd6f389a58368);
+  /*background-image: url(https://images.unsplash.com/photo-1458236987605-990022dbce63?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5880bf560b88dc0fa2edd6f389a58368);*/
+  background-image: url(https://images.unsplash.com/photo-1458236987605-990022dbce63);
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -112,7 +113,8 @@ footer a{
 }
 
 .jumbotron {
-  background-image: url(https://images.unsplash.com/photo-1427805371062-cacdd21273f1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=7bd7472930019681f251b16e76e05595);
+  /*background-image: url(https://images.unsplash.com/photo-1427805371062-cacdd21273f1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=7bd7472930019681f251b16e76e05595);*/
+  background-image: url(https://images.unsplash.com/photo-1427805371062-cacdd21273f1);
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
